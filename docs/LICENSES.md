@@ -1,5 +1,13 @@
 # Licences and attribution
 
+## Body models for the app (`export/crew/`, `blender/crew/`)
+
+`crew-a.glb` and `crew-b.glb` are built only from Blender Studio's **Human Base Meshes** asset bundle v1.4.1,
+object `GEO-body_male_realistic`, which is **CC0 (public domain)**: "All provided assets are public domain under the
+CC0 license" (README inside the bundle). https://download.blender.org/demo/asset-bundles/human-base-meshes/ .
+They contain no Z-Anatomy or BodyParts3D geometry, so the CC BY-SA terms below do **not** apply to them.
+Crediting Blender Studio is not required but is courteous.
+
 ## Licence of this asset
 
 `blender/crew_health_check_master.blend`, every GLB in `export/` and the preview renders contain geometry derived from

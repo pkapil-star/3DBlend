@@ -23,3 +23,6 @@ Thumbs.db
 .idea/
 *.swp
 *.log
+
+# Friend's web app: its own git repo (DivyanshuKirpal/nasa_hackathon), not part of this one
+webapp/

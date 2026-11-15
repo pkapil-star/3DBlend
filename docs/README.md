@@ -6,7 +6,23 @@ medical interpretation is encoded in it.
 
 ![complete](../previews/anatomy_preview_complete.png)
 
-## Deliverables
+## Body models for the app (section 23 contract)
+
+The app's Body screen uses two plain mannequin bodies built to `ARCHITECTURE.md` section 23 (copy:
+`body-model-handoff.md`). They are separate from the anatomy model below and share no geometry with it.
+
+| File | What it is |
+|---|---|
+| `export/crew/crew-a.glb`, `export/crew/crew-b.glb` | The two deliverables: 5 objects each (`body`, `patch_shoulder_r_outer`, `sensor_chest`, `sensor_upper_back`, `sensor_forearm_l`), about 40k triangles, 0.72 MB, 1.75 m tall, 40° A-pose |
+| `export/crew/model-notes.md` | The notes the contract asks for: base mesh and licence, AI use, measured profile values, checks, limits |
+| `blender/crew/crew-a.blend`, `crew-b.blend` | The editable scenes |
+| `scripts/crew/build_crew.sh` | Rebuilds both bodies from the CC0 base mesh and checks them (about 3 minutes) |
+| `scripts/crew/check_crew.py` | Standard-library copy of the section 23.9 checks: `python3 scripts/crew/check_crew.py export/crew/crew-a.glb --height-cm 175` |
+
+Before sending, fill in the two `TODO`s in `model-notes.md` (who sends it, who checked the shoulder patch against the
+UW deltoid atlas, and when).
+
+## Deliverables (anatomy model)
 
 | File | What it is |
 |---|---|
