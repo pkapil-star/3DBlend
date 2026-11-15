@@ -1,0 +1,314 @@
+{
+ "asset_version": "1.0.0",
+ "glb": "astronaut_digital_twin.glb",
+ "root_node": "ROOT_CrewHealthCheck",
+ "units": "metres",
+ "blender_version": "5.3.0",
+ "coordinates": {
+  "blender": "+Z up, subject faces -Y, subject's left = +X",
+  "gltf_threejs": "+Y up, subject faces +Z (towards the default camera), subject's left = +X",
+  "conversion_blender_to_gltf": "(x, y, z) -> (x, z, -y)"
+ },
+ "disclaimer": "Educational / visualization asset. Not medically validated and not a representation of any specific person.",
+ "orientation": "Node local +Z is the outward skin normal and local +Y points 'up' along the surface (in glTF axes).",
+ "note": "Attachment references only. These are not validated sensor placements.",
+ "anchors": [
+  {
+   "node_name": "ANCHOR_OPT_ABDOMEN",
+   "anchor_type": "optional",
+   "anchor_label": "Abdomen, above the umbilicus",
+   "body_region": "ABDOMEN",
+   "default_visible": false,
+   "position_gltf": [
+    0.0,
+    1.10027,
+    0.12452
+   ],
+   "normal_gltf": [
+    0.03388,
+    -0.11987,
+    0.99221
+   ],
+   "up_gltf": [
+    0.00409,
+    0.99279,
+    0.1198
+   ],
+   "position_blender": [
+    0.0,
+    -0.12452,
+    1.10027
+   ]
+  },
+  {
+   "node_name": "ANCHOR_OPT_FOREHEAD",
+   "anchor_type": "optional",
+   "anchor_label": "Forehead",
+   "body_region": "HEAD",
+   "default_visible": false,
+   "position_gltf": [
+    0.0,
+    1.67481,
+    0.09432
+   ],
+   "normal_gltf": [
+    0.01577,
+    0.17826,
+    0.98386
+   ],
+   "up_gltf": [
+    -0.00286,
+    0.98398,
+    -0.17823
+   ],
+   "position_blender": [
+    0.0,
+    -0.09432,
+    1.67481
+   ]
+  },
+  {
+   "node_name": "ANCHOR_OPT_LOWER_LEG_LEFT",
+   "anchor_type": "optional",
+   "anchor_label": "Left lateral lower leg",
+   "body_region": "CALF_LEFT",
+   "default_visible": false,
+   "position_gltf": [
+    0.143,
+    0.25912,
+    -0.03405
+   ],
+   "normal_gltf": [
+    0.92785,
+    -0.18587,
+    0.32335
+   ],
+   "up_gltf": [
+    0.17551,
+    0.98257,
+    0.06117
+   ],
+   "position_blender": [
+    0.143,
+    0.03405,
+    0.25912
+   ]
+  },
+  {
+   "node_name": "ANCHOR_OPT_NECK",
+   "anchor_type": "optional",
+   "anchor_label": "Left anterolateral neck",
+   "body_region": "NECK",
+   "default_visible": false,
+   "position_gltf": [
+    0.04254,
+    1.52968,
+    0.02364
+   ],
+   "normal_gltf": [
+    0.70396,
+    -0.02143,
+    0.70992
+   ],
+   "up_gltf": [
+    0.01509,
+    0.99977,
+    0.01522
+   ],
+   "position_blender": [
+    0.04254,
+    -0.02364,
+    1.52968
+   ]
+  },
+  {
+   "node_name": "ANCHOR_OPT_THIGH_LEFT",
+   "anchor_type": "optional",
+   "anchor_label": "Left anterior mid-thigh",
+   "body_region": "THIGH_LEFT",
+   "default_visible": false,
+   "position_gltf": [
+    0.07577,
+    0.66263,
+    0.05828
+   ],
+   "normal_gltf": [
+    -0.37633,
+    -0.06265,
+    0.92436
+   ],
+   "up_gltf": [
+    -0.02362,
+    0.99804,
+    0.05802
+   ],
+   "position_blender": [
+    0.07577,
+    -0.05828,
+    0.66263
+   ]
+  },
+  {
+   "node_name": "ANCHOR_OPT_UPPER_ARM_LEFT",
+   "anchor_type": "optional",
+   "anchor_label": "Left lateral upper arm",
+   "body_region": "UPPER_ARM_LEFT",
+   "default_visible": false,
+   "position_gltf": [
+    0.28958,
+    1.31204,
+    -0.03173
+   ],
+   "normal_gltf": [
+    0.7485,
+    0.60199,
+    0.27813
+   ],
+   "up_gltf": [
+    -0.62677,
+    0.7792,
+    0.00022
+   ],
+   "position_blender": [
+    0.28958,
+    0.03173,
+    1.31204
+   ]
+  },
+  {
+   "node_name": "ANCHOR_OPT_UPPER_CHEST",
+   "anchor_type": "optional",
+   "anchor_label": "Left upper chest below the clavicle",
+   "body_region": "CHEST_ANTERIOR",
+   "default_visible": false,
+   "position_gltf": [
+    0.07,
+    1.38754,
+    0.09384
+   ],
+   "normal_gltf": [
+    0.1689,
+    0.51623,
+    0.83963
+   ],
+   "up_gltf": [
+    -0.10181,
+    0.85645,
+    -0.50609
+   ],
+   "position_blender": [
+    0.07,
+    -0.09384,
+    1.38754
+   ]
+  },
+  {
+   "node_name": "ANCHOR_OPT_WRIST_LEFT",
+   "anchor_type": "optional",
+   "anchor_label": "Left dorsal wrist",
+   "body_region": "FOREARM_LEFT",
+   "default_visible": false,
+   "position_gltf": [
+    0.45994,
+    0.98547,
+    -0.01236
+   ],
+   "normal_gltf": [
+    0.30608,
+    -0.21174,
+    -0.92816
+   ],
+   "up_gltf": [
+    -0.51925,
+    0.78003,
+    -0.34918
+   ],
+   "position_blender": [
+    0.45994,
+    0.01236,
+    0.98547
+   ]
+  },
+  {
+   "node_name": "ANCHOR_SENSOR_CHEST",
+   "anchor_type": "sensor",
+   "anchor_label": "Suit sensor: anterior chest, upper sternum",
+   "body_region": "CHEST_ANTERIOR",
+   "default_visible": false,
+   "position_gltf": [
+    0.0,
+    1.38134,
+    0.09323
+   ],
+   "normal_gltf": [
+    0.26354,
+    0.39579,
+    0.87972
+   ],
+   "up_gltf": [
+    -0.11358,
+    0.91834,
+    -0.37914
+   ],
+   "position_blender": [
+    0.0,
+    -0.09323,
+    1.38134
+   ]
+  },
+  {
+   "node_name": "ANCHOR_SENSOR_LEFT_FOREARM",
+   "anchor_type": "sensor",
+   "anchor_label": "Suit sensor: left forearm, dorsal mid-forearm",
+   "body_region": "FOREARM_LEFT",
+   "default_visible": false,
+   "position_gltf": [
+    0.40673,
+    1.0618,
+    -0.04887
+   ],
+   "normal_gltf": [
+    0.16034,
+    -0.34384,
+    -0.92524
+   ],
+   "up_gltf": [
+    -0.54009,
+    0.75403,
+    -0.37381
+   ],
+   "position_blender": [
+    0.40673,
+    0.04887,
+    1.0618
+   ]
+  },
+  {
+   "node_name": "ANCHOR_SENSOR_UPPER_BACK",
+   "anchor_type": "sensor",
+   "anchor_label": "Suit sensor: posterior upper thorax, T3 level",
+   "body_region": "CHEST_POSTERIOR",
+   "default_visible": false,
+   "position_gltf": [
+    0.0,
+    1.4332,
+    -0.11161
+   ],
+   "normal_gltf": [
+    -0.30422,
+    0.1691,
+    -0.93747
+   ],
+   "up_gltf": [
+    0.0522,
+    0.9856,
+    0.16085
+   ],
+   "position_blender": [
+    0.0,
+    0.11161,
+    1.4332
+   ]
+  }
+ ]
+}

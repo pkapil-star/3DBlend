@@ -1,0 +1,658 @@
+{
+ "asset_version": "1.0.0",
+ "glb": "astronaut_digital_twin.glb",
+ "root_node": "ROOT_CrewHealthCheck",
+ "units": "metres",
+ "blender_version": "5.3.0",
+ "coordinates": {
+  "blender": "+Z up, subject faces -Y, subject's left = +X",
+  "gltf_threejs": "+Y up, subject faces +Z (towards the default camera), subject's left = +X",
+  "conversion_blender_to_gltf": "(x, y, z) -> (x, z, -y)"
+ },
+ "disclaimer": "Educational / visualization asset. Not medically validated and not a representation of any specific person.",
+ "skin_node": "BODY_Skin",
+ "vertex_attributes": {
+  "_REGION_ID": "float per vertex = region id below (Three.js: geometry.attributes._region_id)",
+  "_SUBREGION_ID": "1 = right outer shoulder / deltoid, 2 = left outer shoulder, 0 = none (geometry.attributes._subregion_id)",
+  "COLOR_0": "white vertex colours reserved for runtime heatmaps"
+ },
+ "picking": {
+  "how": "Raycast BODY_Skin. intersection.face.a is a vertex index: read _region_id at that index.",
+  "soreness_pin": "Store {region_id, point:[x,y,z], normal:[x,y,z]} in BODY_Skin local space; any surface point is allowed."
+ },
+ "regions": [
+  {
+   "region_name": "HEAD",
+   "region_id": 1,
+   "node_name": "REGION_HEAD",
+   "side": "midline",
+   "position_gltf": [
+    -0.00207,
+    1.65597,
+    0.09606
+   ],
+   "normal_gltf": [
+    0.00035,
+    -0.05983,
+    0.99821
+   ],
+   "up_gltf": [
+    2e-05,
+    0.99821,
+    0.05983
+   ]
+  },
+  {
+   "region_name": "NECK",
+   "region_id": 2,
+   "node_name": "REGION_NECK",
+   "side": "midline",
+   "position_gltf": [
+    -0.00207,
+    1.52227,
+    0.07909
+   ],
+   "normal_gltf": [
+    -0.05442,
+    -0.92917,
+    0.36561
+   ],
+   "up_gltf": [
+    -0.13681,
+    0.36964,
+    0.91905
+   ]
+  },
+  {
+   "region_name": "CHEST_ANTERIOR",
+   "region_id": 3,
+   "node_name": "REGION_CHEST_ANTERIOR",
+   "side": "midline",
+   "position_gltf": [
+    -0.00346,
+    1.3192,
+    0.11681
+   ],
+   "normal_gltf": [
+    0.41122,
+    0.08801,
+    0.90728
+   ],
+   "up_gltf": [
+    -0.03633,
+    0.99612,
+    -0.08016
+   ]
+  },
+  {
+   "region_name": "CHEST_POSTERIOR",
+   "region_id": 4,
+   "node_name": "REGION_CHEST_POSTERIOR",
+   "side": "midline",
+   "position_gltf": [
+    0.00518,
+    1.29264,
+    -0.12224
+   ],
+   "normal_gltf": [
+    -0.32887,
+    -0.11371,
+    -0.93751
+   ],
+   "up_gltf": [
+    -0.03764,
+    0.99351,
+    -0.1073
+   ]
+  },
+  {
+   "region_name": "ABDOMEN",
+   "region_id": 5,
+   "node_name": "REGION_ABDOMEN",
+   "side": "midline",
+   "position_gltf": [
+    -0.00524,
+    1.09543,
+    0.12411
+   ],
+   "normal_gltf": [
+    0.03388,
+    -0.11987,
+    0.99221
+   ],
+   "up_gltf": [
+    0.00409,
+    0.99279,
+    0.1198
+   ]
+  },
+  {
+   "region_name": "PELVIS",
+   "region_id": 6,
+   "node_name": "REGION_PELVIS",
+   "side": "midline",
+   "position_gltf": [
+    -0.00441,
+    0.8976,
+    0.09258
+   ],
+   "normal_gltf": [
+    -0.02372,
+    -0.4334,
+    0.90089
+   ],
+   "up_gltf": [
+    -0.01141,
+    0.9012,
+    0.43325
+   ]
+  },
+  {
+   "region_name": "SHOULDER_LEFT",
+   "region_id": 7,
+   "node_name": "REGION_SHOULDER_LEFT",
+   "side": "left",
+   "position_gltf": [
+    0.23754,
+    1.42538,
+    -0.02717
+   ],
+   "normal_gltf": [
+    0.79814,
+    0.57496,
+    0.18
+   ],
+   "up_gltf": [
+    -0.56087,
+    0.81818,
+    -0.12649
+   ]
+  },
+  {
+   "region_name": "SHOULDER_RIGHT",
+   "region_id": 8,
+   "node_name": "REGION_SHOULDER_RIGHT",
+   "side": "right",
+   "position_gltf": [
+    -0.23754,
+    1.42538,
+    -0.02717
+   ],
+   "normal_gltf": [
+    -0.79813,
+    0.57496,
+    0.18
+   ],
+   "up_gltf": [
+    0.56088,
+    0.81818,
+    -0.12649
+   ]
+  },
+  {
+   "region_name": "UPPER_ARM_LEFT",
+   "region_id": 9,
+   "node_name": "REGION_UPPER_ARM_LEFT",
+   "side": "left",
+   "position_gltf": [
+    0.30655,
+    1.29199,
+    -0.04867
+   ],
+   "normal_gltf": [
+    0.81724,
+    0.56563,
+    -0.11037
+   ],
+   "up_gltf": [
+    -0.56054,
+    0.82466,
+    0.0757
+   ]
+  },
+  {
+   "region_name": "UPPER_ARM_RIGHT",
+   "region_id": 10,
+   "node_name": "REGION_UPPER_ARM_RIGHT",
+   "side": "right",
+   "position_gltf": [
+    -0.30655,
+    1.29199,
+    -0.04867
+   ],
+   "normal_gltf": [
+    -0.81724,
+    0.56563,
+    -0.11037
+   ],
+   "up_gltf": [
+    0.56054,
+    0.82466,
+    0.0757
+   ]
+  },
+  {
+   "region_name": "FOREARM_LEFT",
+   "region_id": 11,
+   "node_name": "REGION_FOREARM_LEFT",
+   "side": "left",
+   "position_gltf": [
+    0.39832,
+    1.08307,
+    0.02259
+   ],
+   "normal_gltf": [
+    -0.11175,
+    0.07566,
+    0.99085
+   ],
+   "up_gltf": [
+    0.00848,
+    0.99713,
+    -0.07519
+   ]
+  },
+  {
+   "region_name": "FOREARM_RIGHT",
+   "region_id": 12,
+   "node_name": "REGION_FOREARM_RIGHT",
+   "side": "right",
+   "position_gltf": [
+    -0.39832,
+    1.08307,
+    0.02259
+   ],
+   "normal_gltf": [
+    0.11175,
+    0.07566,
+    0.99085
+   ],
+   "up_gltf": [
+    -0.00848,
+    0.99713,
+    -0.07519
+   ]
+  },
+  {
+   "region_name": "HAND_LEFT",
+   "region_id": 13,
+   "node_name": "REGION_HAND_LEFT",
+   "side": "left",
+   "position_gltf": [
+    0.52349,
+    0.88528,
+    0.05414
+   ],
+   "normal_gltf": [
+    -0.05379,
+    0.20683,
+    0.9769
+   ],
+   "up_gltf": [
+    0.01137,
+    0.97838,
+    -0.20652
+   ]
+  },
+  {
+   "region_name": "HAND_RIGHT",
+   "region_id": 14,
+   "node_name": "REGION_HAND_RIGHT",
+   "side": "right",
+   "position_gltf": [
+    -0.52349,
+    0.88528,
+    0.05414
+   ],
+   "normal_gltf": [
+    0.05379,
+    0.20683,
+    0.9769
+   ],
+   "up_gltf": [
+    -0.01137,
+    0.97838,
+    -0.20651
+   ]
+  },
+  {
+   "region_name": "THIGH_LEFT",
+   "region_id": 15,
+   "node_name": "REGION_THIGH_LEFT",
+   "side": "left",
+   "position_gltf": [
+    0.09804,
+    0.71436,
+    0.0676
+   ],
+   "normal_gltf": [
+    -0.22094,
+    -0.04812,
+    0.9741
+   ],
+   "up_gltf": [
+    -0.01064,
+    0.99884,
+    0.04693
+   ]
+  },
+  {
+   "region_name": "THIGH_RIGHT",
+   "region_id": 16,
+   "node_name": "REGION_THIGH_RIGHT",
+   "side": "right",
+   "position_gltf": [
+    -0.09804,
+    0.71436,
+    0.0676
+   ],
+   "normal_gltf": [
+    0.22094,
+    -0.04812,
+    0.9741
+   ],
+   "up_gltf": [
+    0.01064,
+    0.99884,
+    0.04693
+   ]
+  },
+  {
+   "region_name": "KNEE_LEFT",
+   "region_id": 17,
+   "node_name": "REGION_KNEE_LEFT",
+   "side": "left",
+   "position_gltf": [
+    0.08486,
+    0.46092,
+    0.04623
+   ],
+   "normal_gltf": [
+    -0.45811,
+    -0.24365,
+    0.85485
+   ],
+   "up_gltf": [
+    -0.11509,
+    0.96986,
+    0.21476
+   ]
+  },
+  {
+   "region_name": "KNEE_RIGHT",
+   "region_id": 18,
+   "node_name": "REGION_KNEE_RIGHT",
+   "side": "right",
+   "position_gltf": [
+    -0.08486,
+    0.46092,
+    0.04623
+   ],
+   "normal_gltf": [
+    0.45811,
+    -0.24365,
+    0.85485
+   ],
+   "up_gltf": [
+    0.11509,
+    0.96986,
+    0.21476
+   ]
+  },
+  {
+   "region_name": "CALF_LEFT",
+   "region_id": 19,
+   "node_name": "REGION_CALF_LEFT",
+   "side": "left",
+   "position_gltf": [
+    0.09015,
+    0.27543,
+    -0.11563
+   ],
+   "normal_gltf": [
+    0.05626,
+    -0.17806,
+    -0.98241
+   ],
+   "up_gltf": [
+    0.01018,
+    0.98402,
+    -0.17777
+   ]
+  },
+  {
+   "region_name": "CALF_RIGHT",
+   "region_id": 20,
+   "node_name": "REGION_CALF_RIGHT",
+   "side": "right",
+   "position_gltf": [
+    -0.09015,
+    0.27543,
+    -0.11563
+   ],
+   "normal_gltf": [
+    -0.05626,
+    -0.17806,
+    -0.98241
+   ],
+   "up_gltf": [
+    -0.01018,
+    0.98402,
+    -0.17777
+   ]
+  },
+  {
+   "region_name": "FOOT_LEFT",
+   "region_id": 21,
+   "node_name": "REGION_FOOT_LEFT",
+   "side": "left",
+   "position_gltf": [
+    0.09195,
+    0.07649,
+    0.02083
+   ],
+   "normal_gltf": [
+    0.25371,
+    0.83315,
+    0.49142
+   ],
+   "up_gltf": [
+    -0.3822,
+    0.55305,
+    -0.74031
+   ]
+  },
+  {
+   "region_name": "FOOT_RIGHT",
+   "region_id": 22,
+   "node_name": "REGION_FOOT_RIGHT",
+   "side": "right",
+   "position_gltf": [
+    -0.09195,
+    0.07649,
+    0.02083
+   ],
+   "normal_gltf": [
+    -0.25371,
+    0.83315,
+    0.49142
+   ],
+   "up_gltf": [
+    0.3822,
+    0.55305,
+    -0.74031
+   ]
+  }
+ ],
+ "subregions": [
+  {
+   "name": "REGION_SHOULDER_RIGHT_DELTOID",
+   "subregion_id": 1,
+   "parent_region": "SHOULDER_RIGHT",
+   "overlay_node": "REGION_SHOULDER_RIGHT_DELTOID",
+   "faces": 162
+  }
+ ],
+ "measurement_markers": [
+  {
+   "node_name": "MEASURE_Chest",
+   "measurement": "chest_circumference",
+   "value_m": 1.0965,
+   "description": "Chest circumference level (front, midline).",
+   "position_gltf": [
+    0.0,
+    1.2953,
+    0.12826
+   ]
+  },
+  {
+   "node_name": "MEASURE_FootLength",
+   "measurement": "foot_length",
+   "value_m": 0.2605,
+   "description": "Tip of the longest toe of the left foot.",
+   "position_gltf": [
+    0.08916,
+    0.01613,
+    0.14909
+   ]
+  },
+  {
+   "node_name": "MEASURE_FootLength_Heel",
+   "measurement": "foot_length",
+   "value_m": 0.2605,
+   "description": "Back of the left heel.",
+   "position_gltf": [
+    0.07466,
+    0.02496,
+    -0.11138
+   ]
+  },
+  {
+   "node_name": "MEASURE_Forearm_L_Wrist",
+   "measurement": "forearm_length",
+   "value_m": 0.25,
+   "description": "Left wrist joint centre. Length runs from MEASURE_UpperArm_L_Elbow.",
+   "position_gltf": [
+    0.47674,
+    0.96137,
+    0.01455
+   ]
+  },
+  {
+   "node_name": "MEASURE_Height_Floor",
+   "measurement": "height",
+   "value_m": 0.0,
+   "description": "Floor reference, between the feet.",
+   "position_gltf": [
+    0.0,
+    0.0,
+    -0.0
+   ]
+  },
+  {
+   "node_name": "MEASURE_Height_TopHead",
+   "measurement": "height",
+   "value_m": 1.7498,
+   "description": "Vertex of the head. Height is measured from the floor (Z = 0).",
+   "position_gltf": [
+    -0.00813,
+    1.74981,
+    -0.00652
+   ]
+  },
+  {
+   "node_name": "MEASURE_Hip",
+   "measurement": "hip_circumference",
+   "value_m": 0.9879,
+   "description": "Maximum hip circumference level (front, midline).",
+   "position_gltf": [
+    0.0,
+    0.8379,
+    0.06346
+   ]
+  },
+  {
+   "node_name": "MEASURE_Inseam",
+   "measurement": "inseam",
+   "value_m": 0.7879,
+   "description": "Crotch point. Inseam is its height above the floor.",
+   "position_gltf": [
+    0.0,
+    0.7879,
+    0.01777
+   ]
+  },
+  {
+   "node_name": "MEASURE_Shoulder_L",
+   "measurement": "shoulder_breadth",
+   "value_m": 0.3663,
+   "description": "Skin point over the left acromion.",
+   "position_gltf": [
+    0.18314,
+    1.45569,
+    -0.04899
+   ]
+  },
+  {
+   "node_name": "MEASURE_Shoulder_R",
+   "measurement": "shoulder_breadth",
+   "value_m": 0.3663,
+   "description": "Skin point over the right acromion.",
+   "position_gltf": [
+    -0.18314,
+    1.45569,
+    -0.04899
+   ]
+  },
+  {
+   "node_name": "MEASURE_UpperArm_L_Elbow",
+   "measurement": "upper_arm_length",
+   "value_m": 0.3315,
+   "description": "Left elbow joint centre. Length runs from MEASURE_Shoulder_L.",
+   "position_gltf": [
+    0.33671,
+    1.16222,
+    -0.03615
+   ]
+  },
+  {
+   "node_name": "MEASURE_Waist",
+   "measurement": "waist_circumference",
+   "value_m": 0.8359,
+   "description": "Natural waist level (front, midline).",
+   "position_gltf": [
+    0.0,
+    1.09128,
+    0.12447
+   ]
+  }
+ ],
+ "reference_profile": {
+  "profile_id": "REFERENCE_A",
+  "fictional": true,
+  "pose": "A-pose",
+  "height_m": 1.7498,
+  "inseam_m": 0.7879,
+  "shoulder_breadth_biacromial_m": 0.3663,
+  "upper_arm_length_m": 0.3315,
+  "forearm_length_m": 0.25,
+  "chest_circumference_m": 1.0965,
+  "waist_circumference_m": 0.8359,
+  "hip_circumference_m": 0.9879,
+  "foot_length_m": 0.2605,
+  "levels_m": {
+   "chest": 1.2953,
+   "waist": 1.0913,
+   "hip": 0.8379
+  },
+  "method": "Measured on the skin mesh in the A-pose. Circumferences are tape-measure (convex) perimeters of horizontal trunk sections with the arms excluded."
+ },
+ "profile_b": {
+  "profile_id": "REFERENCE_B",
+  "fictional": true,
+  "shape_key": "Profile_B",
+  "height_m": 1.7498,
+  "note": "Heavier build, same stature. Only the outer body changes; internal anatomy, anchors and markers stay with profile A.",
+  "max_surface_offset_m": 0.0277
+ }
+}

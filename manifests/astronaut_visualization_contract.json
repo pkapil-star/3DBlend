@@ -1,0 +1,458 @@
+{
+ "asset_version": "1.0.0",
+ "glb": "astronaut_digital_twin.glb",
+ "root_node": "ROOT_CrewHealthCheck",
+ "units": "metres",
+ "blender_version": "5.3.0",
+ "coordinates": {
+  "blender": "+Z up, subject faces -Y, subject's left = +X",
+  "gltf_threejs": "+Y up, subject faces +Z (towards the default camera), subject's left = +X",
+  "conversion_blender_to_gltf": "(x, y, z) -> (x, z, -y)"
+ },
+ "disclaimer": "Educational / visualization asset. Not medically validated and not a representation of any specific person.",
+ "system_group_nodes": {
+  "external": "SYSTEM_ExternalBody",
+  "skeletal": "SYSTEM_Skeletal",
+  "muscular": "SYSTEM_Muscular",
+  "cardiovascular": "SYSTEM_Cardiovascular",
+  "respiratory": "SYSTEM_Respiratory",
+  "nervous": "SYSTEM_Nervous",
+  "digestive": "SYSTEM_Digestive",
+  "urinary": "SYSTEM_Urinary",
+  "endocrine": "SYSTEM_Endocrine",
+  "lymphatic": "SYSTEM_Lymphatic"
+ },
+ "visibility_presets": {
+  "1_full_body": {
+   "show_systems": [
+    "external"
+   ],
+   "description": "Assembled human (default presentation)"
+  },
+  "2_external_only": {
+   "show_systems": [
+    "external"
+   ]
+  },
+  "3_internal_exposed": {
+   "show_systems": [
+    "skeletal",
+    "cardiovascular",
+    "respiratory",
+    "nervous",
+    "digestive",
+    "urinary",
+    "endocrine",
+    "lymphatic"
+   ],
+   "skin_material": "MAT_Skin_Inspection"
+  },
+  "4_skeleton_only": {
+   "show_systems": [
+    "skeletal"
+   ]
+  },
+  "5_muscles_only": {
+   "show_systems": [
+    "muscular"
+   ]
+  },
+  "6_cardiovascular_only": {
+   "show_systems": [
+    "cardiovascular"
+   ]
+  },
+  "7_respiratory_only": {
+   "show_systems": [
+    "respiratory"
+   ]
+  },
+  "8_nervous_only": {
+   "show_systems": [
+    "nervous"
+   ]
+  },
+  "9_single_organ": {
+   "show_nodes": [
+    "<any node_name>"
+   ],
+   "description": "Hide all system group nodes, show one node and its parents"
+  },
+  "10_full_anatomy": {
+   "show_systems": [
+    "skeletal",
+    "muscular",
+    "cardiovascular",
+    "respiratory",
+    "nervous",
+    "digestive",
+    "urinary",
+    "endocrine",
+    "lymphatic"
+   ]
+  }
+ },
+ "morph_targets": {
+  "heart": {
+   "nodes": [
+    "ORG_Heart_LeftVentricle",
+    "ORG_Heart_RightVentricle",
+    "ORG_Heart_LeftAtrium",
+    "ORG_Heart_RightAtrium",
+    "ORG_Heart_Septum",
+    "ORG_Heart_Valves",
+    "VESSEL_CoronaryArteries",
+    "VESSEL_CardiacVeins"
+   ],
+   "targets": [
+    "Heart_Contract"
+   ],
+   "range": [
+    0,
+    1
+   ],
+   "note": "Visual contraction control only. Drive all heart nodes with the same value."
+  },
+  "lungs": {
+   "nodes": [
+    "ORG_Lung_L_SuperiorLobe",
+    "ORG_Lung_L_InferiorLobe",
+    "ORG_Lung_R_SuperiorLobe",
+    "ORG_Lung_R_MiddleLobe",
+    "ORG_Lung_R_InferiorLobe",
+    "MUSCLE_Diaphragm"
+   ],
+   "targets": [
+    "Lungs_Inhale",
+    "Lungs_Exhale"
+   ],
+   "range": [
+    0,
+    1
+   ],
+   "note": "Visual breathing controls only."
+  },
+  "body_profile": {
+   "nodes": [
+    "BODY_Skin"
+   ],
+   "targets": [
+    "Profile_B"
+   ],
+   "range": [
+    0,
+    1
+   ],
+   "note": "Second fictional proportion profile. Only the outer body changes."
+  }
+ },
+ "pivots": {
+  "ORG_Heart": "group node at the centre of the heart; scale or pulse it as a whole",
+  "lungs": "ORG_Lung_L / ORG_Lung_R group nodes at the centre of each lung",
+  "other_meshes": "each mesh origin is at its bounding-box centre"
+ },
+ "materials": {
+  "MAT_Body_Base": {
+   "base_color": [
+    0.78,
+    0.8,
+    0.83
+   ],
+   "alpha": 1.0,
+   "roughness": 0.45
+  },
+  "MAT_Skin_Inspection": {
+   "base_color": [
+    0.78,
+    0.8,
+    0.83
+   ],
+   "alpha": 0.22,
+   "roughness": 0.45
+  },
+  "MAT_Region_Highlight": {
+   "base_color": [
+    1.0,
+    0.55,
+    0.1
+   ],
+   "alpha": 0.55,
+   "roughness": 0.6
+  },
+  "MAT_Skeleton_Base": {
+   "base_color": [
+    0.89,
+    0.86,
+    0.76
+   ],
+   "alpha": 1.0,
+   "roughness": 0.55
+  },
+  "MAT_Skeleton_Cartilage": {
+   "base_color": [
+    0.72,
+    0.83,
+    0.87
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  },
+  "MAT_Muscular_Base": {
+   "base_color": [
+    0.62,
+    0.2,
+    0.17
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  },
+  "MAT_Cardiovascular_Base": {
+   "base_color": [
+    0.7,
+    0.16,
+    0.16
+   ],
+   "alpha": 1.0,
+   "roughness": 0.45
+  },
+  "MAT_Cardiovascular_Artery": {
+   "base_color": [
+    0.82,
+    0.1,
+    0.1
+   ],
+   "alpha": 1.0,
+   "roughness": 0.4
+  },
+  "MAT_Cardiovascular_Vein": {
+   "base_color": [
+    0.16,
+    0.28,
+    0.72
+   ],
+   "alpha": 1.0,
+   "roughness": 0.4
+  },
+  "MAT_Respiratory_Base": {
+   "base_color": [
+    0.86,
+    0.6,
+    0.6
+   ],
+   "alpha": 1.0,
+   "roughness": 0.55
+  },
+  "MAT_Respiratory_Airway": {
+   "base_color": [
+    0.78,
+    0.82,
+    0.92
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  },
+  "MAT_Nervous_Base": {
+   "base_color": [
+    0.87,
+    0.72,
+    0.68
+   ],
+   "alpha": 1.0,
+   "roughness": 0.55
+  },
+  "MAT_Nervous_Nerve": {
+   "base_color": [
+    0.93,
+    0.8,
+    0.25
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  },
+  "MAT_Organ_Base": {
+   "base_color": [
+    0.8,
+    0.55,
+    0.5
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  },
+  "MAT_Organ_Liver": {
+   "base_color": [
+    0.5,
+    0.2,
+    0.14
+   ],
+   "alpha": 1.0,
+   "roughness": 0.45
+  },
+  "MAT_Organ_Stomach": {
+   "base_color": [
+    0.85,
+    0.6,
+    0.55
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  },
+  "MAT_Organ_Intestine": {
+   "base_color": [
+    0.87,
+    0.67,
+    0.55
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  },
+  "MAT_Organ_Pancreas": {
+   "base_color": [
+    0.9,
+    0.78,
+    0.5
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  },
+  "MAT_Organ_Gallbladder": {
+   "base_color": [
+    0.35,
+    0.55,
+    0.25
+   ],
+   "alpha": 1.0,
+   "roughness": 0.45
+  },
+  "MAT_Organ_Kidney": {
+   "base_color": [
+    0.55,
+    0.25,
+    0.2
+   ],
+   "alpha": 1.0,
+   "roughness": 0.45
+  },
+  "MAT_Organ_Bladder": {
+   "base_color": [
+    0.85,
+    0.75,
+    0.45
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  },
+  "MAT_Organ_Spleen": {
+   "base_color": [
+    0.45,
+    0.18,
+    0.3
+   ],
+   "alpha": 1.0,
+   "roughness": 0.45
+  },
+  "MAT_Endocrine_Base": {
+   "base_color": [
+    0.72,
+    0.48,
+    0.85
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  },
+  "MAT_Lymphatic_Base": {
+   "base_color": [
+    0.45,
+    0.75,
+    0.45
+   ],
+   "alpha": 1.0,
+   "roughness": 0.5
+  }
+ },
+ "materials_note": "glTF PBR only. Health colours, glow and warnings are not baked in; clone a material per node to tint it at runtime. MAT_Skin_Inspection and MAT_Region_Highlight are optional materials the app can create from these values.",
+ "rig": {
+  "node": "RIG_Armature",
+  "skinned_nodes": [
+   "BODY_Eye_L",
+   "BODY_Eye_R",
+   "BODY_Nails",
+   "BODY_Skin"
+  ],
+  "note": "Only the external body is skinned. Internal anatomy is rigid and does not follow pose changes."
+ },
+ "visualization_types": [
+  "bone_highlight",
+  "morph_animation",
+  "muscle_highlight",
+  "nerve_path",
+  "organ_highlight",
+  "region_overlay",
+  "surface_heatmap",
+  "vessel_path"
+ ],
+ "out_of_scope": "No physiology, flow, diagnosis or thresholds are encoded in this asset.",
+ "files": {
+  "integrated": {
+   "file": "astronaut_digital_twin.glb",
+   "bytes": 14987144,
+   "triangles": 599688
+  },
+  "systems": {
+   "external": {
+    "file": "systems/astronaut_external.glb",
+    "bytes": 3203160,
+    "triangles": 64690
+   },
+   "skeletal": {
+    "file": "systems/astronaut_skeletal.glb",
+    "bytes": 1322128,
+    "triangles": 66920
+   },
+   "muscular": {
+    "file": "systems/astronaut_muscular.glb",
+    "bytes": 3110372,
+    "triangles": 165488
+   },
+   "cardiovascular": {
+    "file": "systems/astronaut_cardiovascular.glb",
+    "bytes": 3832944,
+    "triangles": 155503
+   },
+   "respiratory": {
+    "file": "systems/astronaut_respiratory.glb",
+    "bytes": 854068,
+    "triangles": 22432
+   },
+   "nervous": {
+    "file": "systems/astronaut_nervous.glb",
+    "bytes": 1935248,
+    "triangles": 91627
+   },
+   "digestive": {
+    "file": "systems/astronaut_digestive.glb",
+    "bytes": 245812,
+    "triangles": 12675
+   },
+   "urinary": {
+    "file": "systems/astronaut_urinary.glb",
+    "bytes": 56020,
+    "triangles": 2615
+   },
+   "endocrine": {
+    "file": "systems/astronaut_endocrine.glb",
+    "bytes": 37692,
+    "triangles": 1620
+   },
+   "lymphatic": {
+    "file": "systems/astronaut_lymphatic.glb",
+    "bytes": 367676,
+    "triangles": 15840
+   },
+   "anchors_regions_markers": {
+    "file": "systems/astronaut_anchors_regions_markers.glb",
+    "bytes": 26400,
+    "triangles": 278
+   }
+  }
+ }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "crew-health-check-anatomy-asset",
+  "private": true,
+  "type": "module",
+  "description": "Validation tooling for the Crew Health Check anatomical GLB",
+  "scripts": { "validate": "node viewer/validate_glb.mjs export/astronaut_digital_twin.glb" },
+  "devDependencies": {
+    "gltf-validator": "2.0.0-dev.3.10",
+    "three": "0.187.0",
+    "@gltf-transform/cli": "4.5.1"
+  }
+}
