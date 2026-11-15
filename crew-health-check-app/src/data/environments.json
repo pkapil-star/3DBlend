@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "groundHandlingMin": 5,
+  "groundHandlingNote": "Prototype assumption: the ground needs about 5 minutes to answer. Not a measured value.",
+  "environments": [
+    {
+      "id": "leo_station",
+      "label": "Space station, low Earth orbit",
+      "gravity": "micro",
+      "oneWayDelaySecMin": 0,
+      "oneWayDelaySecMax": 0,
+      "notes": "Prototype assumption: no communication delay (0 s). This is not a measured value.",
+      "sourceIds": []
+    },
+    {
+      "id": "lunar_surface",
+      "label": "Moon base",
+      "gravity": "lunar",
+      "oneWayDelaySecMin": 1.3,
+      "oneWayDelaySecMax": 1.3,
+      "notes": "About 1.3 seconds each way: the approximate light-travel time, not the total communication latency.",
+      "sourceIds": ["gateway-medical-conops"]
+    },
+    {
+      "id": "mars_transit",
+      "label": "Mars transit vehicle",
+      "gravity": "micro",
+      "oneWayDelaySecMin": 180,
+      "oneWayDelaySecMax": 1320,
+      "notes": "Delay grows with distance.",
+      "sourceIds": ["delay-nasa-m2m-2023", "delay-nasa-timedelay-2017"]
+    },
+    {
+      "id": "mars_surface",
+      "label": "Mars base",
+      "gravity": "mars",
+      "oneWayDelaySecMin": 180,
+      "oneWayDelaySecMax": 1320,
+      "notes": "Same delay range as transit.",
+      "sourceIds": [
+        "delay-nasa-m2m-2023",
+        "delay-nasa-timedelay-2017",
+        "hrp-hazards"
+      ]
+    },
+    {
+      "id": "mars_rover",
+      "label": "Mars rover, away from the base",
+      "gravity": "mars",
+      "oneWayDelaySecMin": 180,
+      "oneWayDelaySecMax": 1320,
+      "notes": "Pressurized rover on a trip away from the base. Same delay range as the base.",
+      "sourceIds": [
+        "delay-nasa-m2m-2023",
+        "delay-nasa-timedelay-2017",
+        "hrp-hazards"
+      ]
+    }
+  ]
+}

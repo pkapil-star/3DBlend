@@ -1,0 +1,17 @@
+dist
+coverage
+node_modules
+package-lock.json
+.venv
+
+# Markdown is written by hand; Prettier would re-pad every table
+*.md
+
+# Generated files: only their scripts write them
+public/seed
+public/data
+public/models
+src/data/models
+ml/data
+ml/artifacts
+ml/reports

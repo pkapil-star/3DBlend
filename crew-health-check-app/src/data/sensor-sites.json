@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "staleAfterMin": 15,
+  "trendWindowMin": 60,
+  "cardNote": "A simulated reading from the suit's skin sensor at this site. It is not used in health alerts or in place of your daily temperature check.",
+  "sites": [
+    {
+      "id": "chest",
+      "label": "Chest",
+      "anchorNode": "sensor_chest",
+      "sourceIds": ["biomonitor-csa"]
+    },
+    {
+      "id": "upper_back",
+      "label": "Upper back",
+      "anchorNode": "sensor_upper_back",
+      "sourceIds": ["biomonitor-csa"]
+    },
+    {
+      "id": "forearm_l",
+      "label": "Left forearm",
+      "anchorNode": "sensor_forearm_l",
+      "sourceIds": ["biomonitor-csa"]
+    }
+  ]
+}

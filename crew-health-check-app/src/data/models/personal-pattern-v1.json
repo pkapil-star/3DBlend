@@ -1,0 +1,623 @@
+{
+  "schemaVersion": 1,
+  "modelId": "personal-pattern",
+  "version": "v1",
+  "kind": "shrinkage-mahalanobis",
+  "createdAt": "2026-11-14T21:48:33Z",
+  "label": "A second opinion: today's combination of daily readings compared with how this crew member's own readings usually move together.",
+  "indicators": [
+    "systolic_bp",
+    "diastolic_bp",
+    "heart_rate",
+    "body_temp",
+    "blood_glucose",
+    "sleep_hours",
+    "mood",
+    "reaction_time"
+  ],
+  "minIndicatorsToday": 4,
+  "minDays": 14,
+  "designValues": [
+    "minIndicatorsToday",
+    "minDays"
+  ],
+  "thresholdRule": "Notable when today's squared distance is higher than the leave-one-out distance of every baseline day: the score (today's distance divided by the largest leave-one-out distance) is above 1.",
+  "headline": "Unusual pattern for you",
+  "notableText": "More unusual than any day in your recent baseline",
+  "caveat": "Learned from your own readings. Tested only on simulated data. A second opinion only.",
+  "evaluation": {
+    "simulated": true,
+    "simulator": "tools/simulator/model.py (ARCHITECTURE.md section 24.2)",
+    "seed": 42,
+    "crewProfiles": [
+      "c1",
+      "c2",
+      "c3"
+    ],
+    "historiesPerProfile": 300,
+    "histories": 900,
+    "evaluationDays": [
+      31,
+      120
+    ],
+    "baselineDays": 28,
+    "chanceIfExchangeable": 0.034482758620689655,
+    "shiftDays": 3,
+    "sizeUnit": "times the simulator's day-to-day noise of each shifted indicator",
+    "sizes": [
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ],
+    "patterns": [
+      {
+        "id": "combined",
+        "label": "Sleep and mood lower, resting heart rate and reaction time higher",
+        "directions": {
+          "sleep_hours": -1,
+          "mood": -1,
+          "heart_rate": 1,
+          "reaction_time": 1
+        }
+      },
+      {
+        "id": "temperature-heart-rate",
+        "label": "Body temperature and resting heart rate higher",
+        "directions": {
+          "body_temp": 1,
+          "heart_rate": 1
+        }
+      },
+      {
+        "id": "sleep-only",
+        "label": "Sleep lower, nothing else",
+        "directions": {
+          "sleep_hours": -1
+        }
+      }
+    ],
+    "methods": {
+      "model": "This model: notable when today is more unusual than every baseline day.",
+      "rulesOnly": "Any of the app's rules on these readings is met today (Python copy of the rules engine).",
+      "isolationForest": "scikit-learn IsolationForest fitted on the same baseline days; flags today when its score is lower than every baseline day's."
+    },
+    "rulesEvaluated": [
+      "R-SLEEP-01",
+      "R-TEMP-01",
+      "R-TEMP-02",
+      "R-GLU-02"
+    ],
+    "rulesNotEvaluated": [
+      "R-CO2-01",
+      "R-RAD-01",
+      "R-RAD-03"
+    ],
+    "isolationForest": {
+      "nEstimators": 100,
+      "maxSamples": "auto",
+      "contamination": "auto",
+      "randomState": 42
+    },
+    "falseNotice": {
+      "model": {
+        "flagged": 40,
+        "of": 900,
+        "rate": 0.044444444444444446,
+        "ci95": [
+          0.03280679303050381,
+          0.05995445176798994
+        ]
+      },
+      "rulesOnly": {
+        "flagged": 0,
+        "of": 900,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.004250146730054126
+        ]
+      },
+      "isolationForest": {
+        "flagged": 37,
+        "of": 900,
+        "rate": 0.04111111111111111,
+        "ci95": [
+          0.029971428420913958,
+          0.05615148402244682
+        ]
+      }
+    },
+    "detection": [
+      {
+        "pattern": "combined",
+        "size": 1.0,
+        "model": {
+          "flagged": 154,
+          "of": 900,
+          "rate": 0.1711111111111111,
+          "ci95": [
+            0.1479170452225925,
+            0.19710082907095414
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 124,
+          "of": 900,
+          "rate": 0.13777777777777778,
+          "ci95": [
+            0.11679469789890544,
+            0.16183985284331148
+          ]
+        }
+      },
+      {
+        "pattern": "combined",
+        "size": 1.5,
+        "model": {
+          "flagged": 367,
+          "of": 900,
+          "rate": 0.4077777777777778,
+          "ci95": [
+            0.37613002480048685,
+            0.44020944670750084
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 256,
+          "of": 900,
+          "rate": 0.28444444444444444,
+          "ci95": [
+            0.2559344705045866,
+            0.31478670386348107
+          ]
+        }
+      },
+      {
+        "pattern": "combined",
+        "size": 2.0,
+        "model": {
+          "flagged": 620,
+          "of": 900,
+          "rate": 0.6888888888888889,
+          "ci95": [
+            0.6578943603322948,
+            0.7182778064585736
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 420,
+          "of": 900,
+          "rate": 0.4666666666666667,
+          "ci95": [
+            0.43428397246436723,
+            0.49933270398430296
+          ]
+        }
+      },
+      {
+        "pattern": "combined",
+        "size": 2.5,
+        "model": {
+          "flagged": 801,
+          "of": 900,
+          "rate": 0.89,
+          "ci95": [
+            0.8678769386078873,
+            0.9088079469426704
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 553,
+          "of": 900,
+          "rate": 0.6144444444444445,
+          "ci95": [
+            0.582223092016255,
+            0.6456929855099771
+          ]
+        }
+      },
+      {
+        "pattern": "combined",
+        "size": 3.0,
+        "model": {
+          "flagged": 877,
+          "of": 900,
+          "rate": 0.9744444444444444,
+          "ci95": [
+            0.9619444153335445,
+            0.9829115565470484
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 635,
+          "of": 900,
+          "rate": 0.7055555555555556,
+          "ci95": [
+            0.674954517584185,
+            0.7344093109823483
+          ]
+        }
+      },
+      {
+        "pattern": "temperature-heart-rate",
+        "size": 1.0,
+        "model": {
+          "flagged": 120,
+          "of": 900,
+          "rate": 0.13333333333333333,
+          "ci95": [
+            0.1126755858569008,
+            0.1571078550784722
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 68,
+          "of": 900,
+          "rate": 0.07555555555555556,
+          "ci95": [
+            0.06003571178177096,
+            0.09468330166463053
+          ]
+        }
+      },
+      {
+        "pattern": "temperature-heart-rate",
+        "size": 1.5,
+        "model": {
+          "flagged": 214,
+          "of": 900,
+          "rate": 0.23777777777777778,
+          "ci95": [
+            0.2111157136359354,
+            0.26666880776027074
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 89,
+          "of": 900,
+          "rate": 0.09888888888888889,
+          "ci95": [
+            0.08105815541120515,
+            0.12012918452112714
+          ]
+        }
+      },
+      {
+        "pattern": "temperature-heart-rate",
+        "size": 2.0,
+        "model": {
+          "flagged": 361,
+          "of": 900,
+          "rate": 0.4011111111111111,
+          "ci95": [
+            0.36957594860978726,
+            0.4334868581879344
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 116,
+          "of": 900,
+          "rate": 0.1288888888888889,
+          "ci95": [
+            0.10856457693019686,
+            0.15236775419833218
+          ]
+        }
+      },
+      {
+        "pattern": "temperature-heart-rate",
+        "size": 2.5,
+        "model": {
+          "flagged": 522,
+          "of": 900,
+          "rate": 0.58,
+          "ci95": [
+            0.5474815583523623,
+            0.6118384181708288
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 151,
+          "of": 900,
+          "rate": 0.16777777777777778,
+          "ci95": [
+            0.14478823635625776,
+            0.19359130558215593
+          ]
+        }
+      },
+      {
+        "pattern": "temperature-heart-rate",
+        "size": 3.0,
+        "model": {
+          "flagged": 674,
+          "of": 900,
+          "rate": 0.7488888888888889,
+          "ci95": [
+            0.7195401320745336,
+            0.7761220171087284
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 179,
+          "of": 900,
+          "rate": 0.1988888888888889,
+          "ci95": [
+            0.1741144310558117,
+            0.22622287953050974
+          ]
+        }
+      },
+      {
+        "pattern": "sleep-only",
+        "size": 1.0,
+        "model": {
+          "flagged": 60,
+          "of": 900,
+          "rate": 0.06666666666666667,
+          "ci95": [
+            0.052142409484273664,
+            0.0848743843484399
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 56,
+          "of": 900,
+          "rate": 0.06222222222222222,
+          "ci95": [
+            0.048225333026602354,
+            0.07994035099926723
+          ]
+        }
+      },
+      {
+        "pattern": "sleep-only",
+        "size": 1.5,
+        "model": {
+          "flagged": 87,
+          "of": 900,
+          "rate": 0.09666666666666666,
+          "ci95": [
+            0.07903998179401431,
+            0.117721803234896
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 62,
+          "of": 900,
+          "rate": 0.06888888888888889,
+          "ci95": [
+            0.05410866932550494,
+            0.0873336794106306
+          ]
+        }
+      },
+      {
+        "pattern": "sleep-only",
+        "size": 2.0,
+        "model": {
+          "flagged": 118,
+          "of": 900,
+          "rate": 0.13111111111111112,
+          "ci95": [
+            0.11061904704964196,
+            0.15473883898230908
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 80,
+          "of": 900,
+          "rate": 0.08888888888888889,
+          "ci95": [
+            0.07200119328811633,
+            0.10927114957881706
+          ]
+        }
+      },
+      {
+        "pattern": "sleep-only",
+        "size": 2.5,
+        "model": {
+          "flagged": 199,
+          "of": 900,
+          "rate": 0.22111111111111112,
+          "ci95": [
+            0.1952156349928307,
+            0.2493772246277106
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 95,
+          "of": 900,
+          "rate": 0.10555555555555556,
+          "ci95": [
+            0.08713021028383404,
+            0.1273337943587642
+          ]
+        }
+      },
+      {
+        "pattern": "sleep-only",
+        "size": 3.0,
+        "model": {
+          "flagged": 288,
+          "of": 900,
+          "rate": 0.32,
+          "ci95": [
+            0.2903443559081165,
+            0.35118569691470286
+          ]
+        },
+        "rulesOnly": {
+          "flagged": 0,
+          "of": 900,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.004250146730054126
+          ]
+        },
+        "isolationForest": {
+          "flagged": 97,
+          "of": 900,
+          "rate": 0.10777777777777778,
+          "ci95": [
+            0.08915980131241683,
+            0.1297297582336034
+          ]
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Evaluated only on simulated data from this project's own simulator. The results show that the method works as designed on that simulator; they do not show that it notices real illness.",
+    "The simulator draws each reading's day-to-day noise independently, so the way the readings move together is simpler than in real physiology.",
+    "A person whose readings are often unusual raises their own threshold, because the threshold is their own most unusual baseline day.",
+    "A slow drift over weeks becomes part of the baseline, by design (the baseline engine, section 10).",
+    "On stable readings a notice still appears by chance now and then. If today were just like the 28 baseline days, it would be the most unusual of 29 days about one time in 29; the false-notice rate measures it on the simulator.",
+    "An insight can repeat what an alert already says.",
+    "minIndicatorsToday (4) and minDays (14) are design values, not fitted.",
+    "The shifts are added for 3 days on top of the simulator's ordinary noise; a real change may build up differently.",
+    "The rules-only comparison runs a Python copy of the app's rules on readings. Rules on habitat feeds, space weather or symptoms are not part of this simulation: R-CO2-01, R-RAD-01, R-RAD-03.",
+    "IsolationForest uses scikit-learn's default settings and is scored on the same baseline days it was fitted on (no leave-one-out, to keep the run short). It is a benchmark, not tuned."
+  ],
+  "sourceIds": [
+    "temp-stahn-2017",
+    "bp-norsk-2015",
+    "sleep-barger-2014"
+  ],
+  "software": {
+    "seed": 42,
+    "python": "3.12.5",
+    "numpy": "2.5.4",
+    "scikitLearn": "1.9.1"
+  }
+}

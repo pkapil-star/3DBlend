@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "rules": [
+    {
+      "id": "R-SLEEP-01",
+      "title": "Sleep has been low for several nights",
+      "region": "head",
+      "severity": "watch",
+      "when": {
+        "type": "streak",
+        "indicator": "sleep_hours",
+        "test": { "kind": "baselineOffset", "op": "lt", "offset": -1.0 },
+        "minCount": 4,
+        "windowDays": 5
+      },
+      "timeToActMin": 2880,
+      "needsGround": false,
+      "privateToCrew": false,
+      "explain": {
+        "what": "You slept at least an hour less than your normal on four of the last five nights.",
+        "whySpace": "Crews in orbit average about six hours of sleep a night against eight and a half scheduled. Long-term sleep loss lowers performance."
+      },
+      "protocolId": "P-SLEEP-HYGIENE",
+      "supersedes": [],
+      "sourceIds": ["sleep-barger-2014", "sleep-nasa-ntrs-2024"],
+      "basis": "illustrative"
+    },
+    {
+      "id": "R-TEMP-01",
+      "title": "Temperature is higher than your normal",
+      "region": "core",
+      "severity": "watch",
+      "when": {
+        "type": "latest",
+        "indicator": "body_temp",
+        "test": { "kind": "baselineOffset", "op": "gte", "offset": 1.0 }
+      },
+      "timeToActMin": 720,
+      "needsGround": false,
+      "privateToCrew": false,
+      "explain": {
+        "what": "Your latest temperature is at least 1.0 °C above your normal.",
+        "whySpace": "In one study, resting core temperature ran about 1 °C higher on long missions, so this check compares you with your own in-flight normal."
+      },
+      "protocolId": "P-TEMP-WATCH",
+      "supersedes": [],
+      "sourceIds": ["temp-stahn-2017"],
+      "basis": "illustrative"
+    },
+    {
+      "id": "R-TEMP-02",
+      "title": "Temperature is well above your normal",
+      "region": "core",
+      "severity": "act",
+      "when": {
+        "type": "any",
+        "of": [
+          {
+            "type": "latest",
+            "indicator": "body_temp",
+            "test": { "kind": "absolute", "op": "gte", "value": 39.0 }
+          },
+          {
+            "type": "latest",
+            "indicator": "body_temp",
+            "test": { "kind": "baselineOffset", "op": "gte", "offset": 2.0 }
+          }
+        ]
+      },
+      "timeToActMin": 60,
+      "needsGround": true,
+      "privateToCrew": false,
+      "explain": {
+        "what": "Your latest temperature is 39.0 °C or higher, or at least 2.0 °C above your normal.",
+        "whySpace": "In one study, resting core temperature ran about 1 °C higher on long missions. Both limits in this check are draft values for this prototype; neither has been validated for spaceflight."
+      },
+      "protocolId": "P-TEMP-ACT",
+      "supersedes": ["R-TEMP-01"],
+      "sourceIds": ["temp-stahn-2017"],
+      "basis": "illustrative"
+    },
+    {
+      "id": "R-GLU-02",
+      "title": "Blood sugar reading is low",
+      "region": "core",
+      "severity": "act",
+      "when": {
+        "type": "latest",
+        "indicator": "blood_glucose",
+        "test": { "kind": "absolute", "op": "lt", "value": 70 }
+      },
+      "timeToActMin": 15,
+      "needsGround": false,
+      "privateToCrew": false,
+      "explain": {
+        "what": "Your latest blood sugar reading is below 70 mg/dL. It is either the routine fasting measurement or an urgent re-check taken after this alert.",
+        "whySpace": "On Earth, a reading below 70 mg/dL counts as low blood sugar. Studies of blood sugar control in flight conflict, so this check uses that clinical cut-off rather than a space-specific one."
+      },
+      "protocolId": "P-GLU-LOW",
+      "supersedes": [],
+      "sourceIds": ["hypoglycemia-ada-2025", "insulin-commsbio-2024"],
+      "basis": "clinical-general"
+    },
+    {
+      "id": "R-CO2-01",
+      "title": "Cabin CO2 is above the limit",
+      "region": "whole_body",
+      "severity": "watch",
+      "when": {
+        "type": "context",
+        "feed": "cabin_co2",
+        "windowDays": 1,
+        "test": { "kind": "absolute", "op": "gt", "value": 3.0 }
+      },
+      "timeToActMin": 360,
+      "needsGround": false,
+      "privateToCrew": false,
+      "explain": {
+        "what": "Today's worst 1-hour average of cabin carbon dioxide (CO2) is above 3.0 mmHg, a unit of pressure.",
+        "whySpace": "NASA's standard limits the 1-hour average CO2 to 3 mmHg. Headaches have been reported on the station between 2.8 and 4.5 mmHg."
+      },
+      "protocolId": "P-CO2-AIR",
+      "supersedes": [],
+      "sourceIds": ["co2-nasa-ochmo"],
+      "basis": "nasa-standard"
+    },
+    {
+      "id": "R-RAD-01",
+      "title": "Solar particle event in progress",
+      "region": "whole_body",
+      "severity": "act",
+      "when": {
+        "type": "context",
+        "feed": "solar_event",
+        "windowDays": 1,
+        "test": { "kind": "absolute", "op": "gte", "value": 1 }
+      },
+      "timeToActMin": 30,
+      "needsGround": false,
+      "privateToCrew": false,
+      "explain": {
+        "what": "A solar particle event is in progress: a burst of high-energy particles from the Sun that raises radiation dose.",
+        "whySpace": "NASA's standard requires protecting crews from a design-reference solar particle event to below an effective dose of 250 mSv (millisieverts, a unit of dose). That figure is a design requirement: it does not trigger this alert, and it is not a dose considered harmless."
+      },
+      "protocolId": "P-RAD-SHELTER",
+      "supersedes": ["R-RAD-03"],
+      "sourceIds": ["radiation-nasa-ochmo", "donki"],
+      "basis": "illustrative"
+    },
+    {
+      "id": "R-RAD-03",
+      "title": "Solar flare outlook: possible particle event",
+      "region": "whole_body",
+      "severity": "watch",
+      "when": {
+        "type": "context",
+        "feed": "sep_risk",
+        "windowDays": 1,
+        "test": { "kind": "modelThreshold", "op": "gte", "model": "sep-risk" }
+      },
+      "timeToActMin": 120,
+      "needsGround": false,
+      "privateToCrew": false,
+      "explain": {
+        "what": "An experimental model scored a solar flare from the last 24 hours at or above its alert level. The score reflects how often similar flares were linked to a recorded solar particle event in NASA's DONKI catalog. False alarms are frequent, so this is a prompt to get ready, not a sign that an event has started.",
+        "whySpace": "A solar particle event is a burst of high-energy particles from the Sun that raises radiation dose. Getting ready early leaves more time to reach shelter if an event begins. The score says nothing about your own radiation exposure."
+      },
+      "protocolId": "P-RAD-PREPARE",
+      "supersedes": [],
+      "sourceIds": ["donki", "radiation-nasa-ochmo", "sep-ml-inceoglu-2018"],
+      "basis": "illustrative"
+    }
+  ]
+}

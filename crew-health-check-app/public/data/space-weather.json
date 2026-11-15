@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "source": "NASA CCMC DONKI",
+  "retrievedAt": "2026-11-14T17:56:14Z",
+  "note": "Real events from the NASA CCMC DONKI catalog, replayed in scenarios. The crew and their health readings in every scenario are simulated.",
+  "events": [
+    {
+      "donkiId": "2023-08-08T01:00:00-SEP-001",
+      "type": "SEP",
+      "eventTime": "2023-08-08T01:00Z",
+      "link": "https://ccmc.gsfc.nasa.gov/DONKI/view/SEP/26416/-1",
+      "usedIn": [
+        "solar-storm"
+      ]
+    },
+    {
+      "donkiId": "2023-08-07T20:30:00-FLR-001",
+      "type": "FLR",
+      "eventTime": "2023-08-07T20:46Z",
+      "link": "https://ccmc.gsfc.nasa.gov/DONKI/view/FLR/26403/-1",
+      "usedIn": [
+        "solar-storm"
+      ]
+    },
+    {
+      "donkiId": "2023-08-05T21:45:00-FLR-001",
+      "type": "FLR",
+      "eventTime": "2023-08-05T22:21Z",
+      "link": "https://ccmc.gsfc.nasa.gov/DONKI/view/FLR/26360/-1",
+      "usedIn": [
+        "solar-flare-watch"
+      ]
+    }
+  ]
+}

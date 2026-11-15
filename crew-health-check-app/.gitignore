@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+*.tsbuildinfo
+.vercel/
+
+# Test coverage
+coverage/
+
+# Environment files: never commit secrets
+.env*
+*.local
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Hospital data: never committed (decision D21). Only meta.json (counts, checksums,
+# licence, citations; no patient data) is committed. Row-level processed data stays out.
+ml/data/raw/physionet/*
+!ml/data/raw/physionet/meta.json
+ml/data/processed/hospital/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editors and operating systems
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.sw?

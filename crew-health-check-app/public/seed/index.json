@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "simulated": true,
+  "defaultScenarioId": "sleep-debt",
+  "scenarios": [
+    {
+      "scenarioId": "baseline-healthy",
+      "title": "An ordinary day: nothing unusual",
+      "environmentId": "lunar_surface",
+      "missionDay": 90,
+      "basedOn": null
+    },
+    {
+      "scenarioId": "sleep-debt",
+      "title": "Sleep debt building over five nights",
+      "environmentId": "mars_transit",
+      "missionDay": 142,
+      "basedOn": null
+    },
+    {
+      "scenarioId": "solar-storm",
+      "title": "A solar particle event starts today",
+      "environmentId": "leo_station",
+      "missionDay": 120,
+      "basedOn": "Timing from NASA DONKI solar particle event 2023-08-08T01:00:00-SEP-001 (2023-08-08T01:00Z). Real solar flare from NASA DONKI: 2023-08-07T20:30:00-FLR-001, class X1.5, peak 2023-08-07T20:46Z, replayed on the mission timeline. The crew and their health readings are simulated."
+    },
+    {
+      "scenarioId": "solar-flare-watch",
+      "title": "A large solar flare this morning: the model outlook",
+      "environmentId": "mars_transit",
+      "missionDay": 150,
+      "basedOn": "Real solar flare from NASA DONKI: 2023-08-05T21:45:00-FLR-001, class X1.6, peak 2023-08-05T22:21Z, replayed on the mission timeline. The crew and their health readings are simulated."
+    },
+    {
+      "scenarioId": "fever",
+      "title": "Temperature climbing over two days",
+      "environmentId": "mars_surface",
+      "missionDay": 100,
+      "basedOn": null
+    },
+    {
+      "scenarioId": "low-glucose",
+      "title": "One low fasting blood sugar reading today",
+      "environmentId": "mars_transit",
+      "missionDay": 75,
+      "basedOn": null
+    },
+    {
+      "scenarioId": "early-mission",
+      "title": "Mission day 4: still learning your normal",
+      "environmentId": "leo_station",
+      "missionDay": 4,
+      "basedOn": null
+    },
+    {
+      "scenarioId": "pattern-shift",
+      "title": "Several readings shift a little at once",
+      "environmentId": "mars_surface",
+      "missionDay": 130,
+      "basedOn": null
+    }
+  ]
+}

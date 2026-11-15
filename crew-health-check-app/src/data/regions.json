@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "regions": [
+    {
+      "id": "head",
+      "label": "Head",
+      "indicators": ["sleep_hours", "mood", "reaction_time"],
+      "symptoms": ["headache", "dizziness"],
+      "contextFeeds": []
+    },
+    {
+      "id": "eyes",
+      "label": "Eyes",
+      "indicators": ["near_vision"],
+      "symptoms": ["blurred_vision"],
+      "contextFeeds": []
+    },
+    {
+      "id": "heart",
+      "label": "Chest",
+      "indicators": ["systolic_bp", "diastolic_bp", "heart_rate"],
+      "symptoms": [],
+      "contextFeeds": []
+    },
+    {
+      "id": "core",
+      "label": "Abdomen",
+      "indicators": ["body_temp", "blood_glucose"],
+      "symptoms": ["nausea"],
+      "contextFeeds": []
+    },
+    {
+      "id": "bones_muscle",
+      "label": "Legs and arms",
+      "indicators": ["exercise_minutes"],
+      "symptoms": ["back_pain"],
+      "contextFeeds": []
+    },
+    {
+      "id": "skin",
+      "label": "Skin",
+      "indicators": [],
+      "symptoms": ["rash"],
+      "contextFeeds": []
+    },
+    {
+      "id": "whole_body",
+      "label": "Environment",
+      "indicators": [],
+      "symptoms": ["congestion"],
+      "contextFeeds": [
+        "cabin_co2",
+        "radiation_cumulative",
+        "solar_event",
+        "sep_risk"
+      ]
+    }
+  ]
+}

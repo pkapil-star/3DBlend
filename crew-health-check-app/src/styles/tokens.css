@@ -1,0 +1,64 @@
+/*
+ * Design tokens (ARCHITECTURE.md section 20). The only place raw colour
+ * values live; components and viewer code use these names.
+ */
+
+/*
+ * Status tokens: background, foreground (text and icons) and border for each
+ * status. Status is always shown as colour plus icon plus word, never colour
+ * alone. Tailwind turns these into classes such as bg-status-watch-bg,
+ * text-status-watch-fg and border-status-watch-border.
+ * Contrast is checked against WCAG AA; results are in docs/PROGRESS.md (M0).
+ */
+@theme {
+  --color-status-good-bg: #e6f4ea;
+  --color-status-good-fg: #14532d;
+  --color-status-good-border: #2e7d4f;
+
+  --color-status-watch-bg: #fff3d6;
+  --color-status-watch-fg: #713f12;
+  --color-status-watch-border: #a16207;
+
+  --color-status-act-bg: #fde8e8;
+  --color-status-act-fg: #8b1a1a;
+  --color-status-act-border: #c53030;
+
+  --color-status-none-bg: #eef0f3;
+  --color-status-none-fg: #374151;
+  --color-status-none-border: #6b7280;
+
+  --color-focus-ring: #1d4ed8;
+
+  /*
+   * Trend chart colours (milestone M5). Not status colours: a chart never
+   * says Good, Watch or Act by colour. The line is dark enough to read on
+   * white and on the band; the band marks "your usual range".
+   */
+  --color-chart-line: #1e3a8a;
+  --color-chart-band: #dbeafe;
+  --color-chart-band-edge: #60a5fa;
+  --color-chart-center: #475569;
+  --color-chart-axis: #334155;
+}
+
+/*
+ * 3D viewer colours. The viewer reads them once at mount (section 22.8).
+ * They are not status colours and never carry a health meaning.
+ */
+:root {
+  --viewer-bg: #eef1f5;
+  --body-surface: #a8adb5;
+  --body-patch: #3b6fd8;
+  --pin: #6d28d9;
+  --pin-selected: #3b0f8c;
+  --sensor: #0e7490;
+  --sensor-lost: #6b7280;
+  /*
+   * Health status overlay on the 3D body (section 22.12): the only 3D colours
+   * that carry a status. They always appear next to the legend, which shows
+   * each status as colour plus icon plus word.
+   */
+  --body-status-good: #2e7d4f;
+  --body-status-watch: #d97706;
+  --body-status-act: #dc2626;
+}

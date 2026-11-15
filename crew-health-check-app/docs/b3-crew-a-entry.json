@@ -1,0 +1,99 @@
+{
+  "id": "crew-a",
+  "crewId": "c1",
+  "label": "Crew member A",
+  "status": "delivered",
+  "file": "models/crew-a.glb",
+  "version": "chirag-1",
+  "madeWith": "Blender 5.3 by Chirag (team VoidShifters), from the Z-Anatomy atlas",
+  "aiAssisted": true,
+  "profile": {
+    "heightCm": 175.0,
+    "inseamCm": 78.8,
+    "shoulderBreadthCm": 36.6,
+    "upperArmCm": 33.2,
+    "forearmCm": 25.0,
+    "chestCm": 109.7,
+    "waistCm": 83.6,
+    "hipCm": 98.8,
+    "footCm": 26.1
+  },
+  "patchChecks": {
+    "shoulder_r_outer": {
+      "checked": false,
+      "checkedBy": null
+    }
+  },
+  "notes": "Complete anatomical model from 3DBlend commit c1531ec, used byte for byte with a node map (section 23.12). Local assessment only: not published while the provenance and licence questions are open (docs/b3-model-review.md).",
+  "profileSource": "measured",
+  "nodeMap": {
+    "body": "BODY_Skin",
+    "patch_shoulder_r_outer": "REGION_SHOULDER_RIGHT_DELTOID",
+    "sensor_chest": "ANCHOR_SENSOR_CHEST",
+    "sensor_upper_back": "ANCHOR_SENSOR_UPPER_BACK",
+    "sensor_forearm_l": "ANCHOR_SENSOR_LEFT_FOREARM"
+  },
+  "layers": [
+    {
+      "id": "skin",
+      "label": "Skin",
+      "node": "SYSTEM_ExternalBody",
+      "defaultVisible": true
+    },
+    {
+      "id": "skeleton",
+      "label": "Skeleton",
+      "node": "SYSTEM_Skeletal",
+      "defaultVisible": false
+    },
+    {
+      "id": "muscles",
+      "label": "Muscles",
+      "node": "SYSTEM_Muscular",
+      "defaultVisible": false
+    },
+    {
+      "id": "heart_vessels",
+      "label": "Heart and blood vessels",
+      "node": "SYSTEM_Cardiovascular",
+      "defaultVisible": false
+    },
+    {
+      "id": "lungs_airway",
+      "label": "Lungs and airway",
+      "node": "SYSTEM_Respiratory",
+      "defaultVisible": false
+    },
+    {
+      "id": "nerves",
+      "label": "Brain and nerves",
+      "node": "SYSTEM_Nervous",
+      "defaultVisible": false
+    },
+    {
+      "id": "digestive",
+      "label": "Digestive organs",
+      "node": "SYSTEM_Digestive",
+      "defaultVisible": false
+    },
+    {
+      "id": "urinary",
+      "label": "Kidneys and bladder",
+      "node": "SYSTEM_Urinary",
+      "defaultVisible": false
+    },
+    {
+      "id": "glands",
+      "label": "Hormone glands",
+      "node": "SYSTEM_Endocrine",
+      "defaultVisible": false
+    },
+    {
+      "id": "lymphatic",
+      "label": "Lymphatic system",
+      "node": "SYSTEM_Lymphatic",
+      "defaultVisible": false
+    }
+  ],
+  "attribution": "Anatomy from Z-Anatomy (CC BY-SA 4.0), derived from BodyParts3D, © The Database Center for Life Science. Adapted for this project by Chirag (team VoidShifters). Model licensed CC BY-SA 4.0."
+}

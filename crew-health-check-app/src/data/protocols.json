@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "protocols": [
+    {
+      "id": "P-SLEEP-HYGIENE",
+      "title": "Get your sleep back on track",
+      "note": "Draft guidance, not reviewed. The timings (one hour, two hours, the 24-hour re-check) are illustrative, not taken from a source.",
+      "steps": [
+        { "text": "Dim the lights one hour before your sleep period." },
+        { "text": "Avoid caffeine in the second half of your day." },
+        { "text": "Finish exercise at least two hours before sleep." },
+        { "text": "Log tonight's sleep in tomorrow's check-in." }
+      ],
+      "recheckAfterHours": 24,
+      "escalateIf": "Sleep stays low for three more nights, or your reaction test slows.",
+      "reviewed": false,
+      "sourceIds": ["sleep-barger-2014"]
+    },
+    {
+      "id": "P-TEMP-WATCH",
+      "title": "Higher temperature: rest and re-check",
+      "note": "Draft guidance, not reviewed. The four-hour re-check is illustrative, not taken from a source.",
+      "steps": [
+        { "text": "Take your temperature again in about four hours." },
+        { "text": "Rest and avoid hard exercise until then." },
+        { "text": "Note any other symptoms in today's check-in." },
+        { "text": "Tell the crew medical officer if you feel unwell." }
+      ],
+      "recheckAfterHours": 4,
+      "escalateIf": "Your temperature reaches 2 °C above your normal, or you feel worse.",
+      "reviewed": false,
+      "sourceIds": ["temp-stahn-2017"]
+    },
+    {
+      "id": "P-TEMP-ACT",
+      "title": "High temperature: act now",
+      "note": "Draft guidance, not reviewed. The one-hour re-check is illustrative, not taken from a source.",
+      "steps": [
+        { "text": "Stop strenuous work and rest." },
+        { "text": "Tell the crew medical officer now." },
+        { "text": "Take your temperature again in one hour." },
+        { "text": "Record any other symptoms in the check-in." }
+      ],
+      "recheckAfterHours": 1,
+      "escalateIf": "Your temperature keeps rising, or you feel worse.",
+      "reviewed": false,
+      "sourceIds": ["temp-stahn-2017"]
+    },
+    {
+      "id": "P-GLU-LOW",
+      "title": "Low blood sugar reading: act now",
+      "note": "Draft adaptation of Earth clinical guidance for low blood sugar (ADA Standards of Care in Diabetes 2025), which is written mainly for people with diabetes. Not an approved spaceflight protocol, and not reviewed.",
+      "steps": [
+        {
+          "text": "Stop what you are doing, sit down and tell another crew member."
+        },
+        {
+          "text": "If you are awake and able to swallow safely, take 15 g of fast-acting carbohydrate right away, preferably glucose, from the crew food supply.",
+          "detail": "15 g is the guideline amount for most people. Avoid fatty or high-protein food for this first step."
+        },
+        {
+          "text": "Do not give food or drink to anyone who is unconscious or cannot swallow safely. Call the crew medical officer immediately."
+        },
+        {
+          "text": "If there is confusion, a seizure, reduced consciousness or worsening symptoms, call the crew medical officer immediately. Do not wait for a second treatment."
+        },
+        {
+          "text": "Measure blood sugar again 15 minutes after the carbohydrate. If it is still below 70 mg/dL, repeat the 15 g and call the crew medical officer.",
+          "detail": "This is an urgent re-check, not the routine fasting measurement: do not wait until you are fasting."
+        }
+      ],
+      "recheckAfterHours": 0.25,
+      "escalateIf": "Blood sugar stays below 70 mg/dL at the re-check, or confusion, a seizure, reduced consciousness or worsening symptoms appear at any time.",
+      "reviewed": false,
+      "sourceIds": ["hypoglycemia-ada-2025"]
+    },
+    {
+      "id": "P-CO2-AIR",
+      "title": "High cabin CO2: improve the air",
+      "note": "Draft guidance, not reviewed. The two-hour re-check is illustrative, not taken from a source.",
+      "steps": [
+        { "text": "Tell the crew about the CO2 reading." },
+        { "text": "Check that air vents and fans near you are clear." },
+        { "text": "Move to a well-ventilated area of the habitat if you can." },
+        { "text": "Log the reading and the time you noticed it." }
+      ],
+      "recheckAfterHours": 2,
+      "escalateIf": "The 1-hour average CO2 stays above 3 mmHg, or anyone gets a headache.",
+      "reviewed": false,
+      "sourceIds": ["co2-nasa-ochmo"]
+    },
+    {
+      "id": "P-RAD-SHELTER",
+      "title": "Solar particle event: take shelter",
+      "note": "Draft guidance, not reviewed. The one-hour re-check is illustrative; real shelter timing depends on the event.",
+      "steps": [
+        { "text": "Stop your current task and make it safe." },
+        { "text": "Move to the designated shelter area." },
+        { "text": "Confirm every crew member is in the shelter." },
+        { "text": "Stay until the event is declared over." }
+      ],
+      "recheckAfterHours": 1,
+      "escalateIf": "Anyone reports nausea or feels unwell during or after the event.",
+      "reviewed": false,
+      "sourceIds": ["radiation-nasa-ochmo"]
+    },
+    {
+      "id": "P-RAD-PREPARE",
+      "title": "Solar flare: get ready for a possible particle event",
+      "note": "Draft guidance, not reviewed. The six-hour re-check is illustrative. These steps prepare for an event that may not happen; they do not mean an event has started.",
+      "steps": [
+        { "text": "Tell the rest of the crew about the outlook." },
+        { "text": "Check where your shelter area is and how you get there." },
+        {
+          "text": "Plan to pause outside work and trips away from shelter until the outlook clears."
+        },
+        { "text": "Keep the radiation alerts in view." }
+      ],
+      "recheckAfterHours": 6,
+      "escalateIf": "A solar particle event begins, or a new large flare follows.",
+      "reviewed": false,
+      "sourceIds": ["radiation-nasa-ochmo"]
+    }
+  ]
+}

@@ -1,0 +1,347 @@
+{
+  "schemaVersion": 1,
+  "modelId": "sep-risk",
+  "version": "v1",
+  "kind": "logistic-regression",
+  "createdAt": "2026-11-14T19:57:49Z",
+  "label": "1: flare linked in DONKI, directly or through one linked CME, to a solar energetic particle record observed by an instrument. 0: no qualifying recorded SEP association. Flares whose only SEP evidence is model output or of unknown origin are excluded as ambiguous.",
+  "data": {
+    "source": "NASA CCMC DONKI",
+    "sourceId": "donki",
+    "apiBase": "https://ccmc.gsfc.nasa.gov/DONKI-API/get/",
+    "retrievedFrom": "2026-11-14T17:27:07Z",
+    "retrievedAt": "2026-11-14T17:57:49Z",
+    "firstFlare": "2010-06-12T00:57Z",
+    "lastFlare": "2026-10-19T09:03Z",
+    "filters": [
+      "GOES class M1.0 or above",
+      "begin and peak time present, and the peak not before the begin",
+      "source location parseable"
+    ],
+    "dropped": {
+      "class cannot be read": 0,
+      "class below M1.0": 631,
+      "begin or peak time missing": 0,
+      "peak time before begin time": 2,
+      "source location cannot be read": 1
+    },
+    "sepRecordClasses": {
+      "observedOnly": 353,
+      "mixed": 0,
+      "modelOnly": 140,
+      "unknown": 1
+    },
+    "splits": {
+      "train": {
+        "years": "2010-2020",
+        "n": 492,
+        "positives": 53,
+        "excludedAmbiguous": 0
+      },
+      "validation": {
+        "years": "2021-2022",
+        "n": 234,
+        "positives": 10,
+        "excludedAmbiguous": 4
+      },
+      "test": {
+        "years": "2023-2026",
+        "n": 2026,
+        "positives": 59,
+        "excludedAmbiguous": 9
+      }
+    }
+  },
+  "features": [
+    {
+      "name": "log10_peak_flux",
+      "group": "Flare class",
+      "mean": -4.573523028509378,
+      "scale": 0.39854697529604804,
+      "coef": 0.22021377411333634,
+      "impute": null
+    },
+    {
+      "name": "lon_sin",
+      "group": "Source location",
+      "mean": 0.051695282352095404,
+      "scale": 0.7323310697541914,
+      "coef": 0.02129664260722752,
+      "impute": null
+    },
+    {
+      "name": "lon_cos",
+      "group": "Source location",
+      "mean": 0.5849489903876463,
+      "scale": 0.34475133168661243,
+      "coef": 0.009287005159068227,
+      "impute": null
+    },
+    {
+      "name": "log1p_rise_min",
+      "group": "Rise time",
+      "mean": 2.609367721699512,
+      "scale": 0.9094314788874872,
+      "coef": 0.1734500682874183,
+      "impute": null
+    },
+    {
+      "name": "log1p_duration_min",
+      "group": "Duration",
+      "mean": 3.2203056422749667,
+      "scale": 0.9702922404965599,
+      "coef": 0.22135514610561682,
+      "impute": 3.044522437723423
+    },
+    {
+      "name": "has_cme",
+      "group": "CME",
+      "mean": 0.31097560975609756,
+      "scale": 0.4628928384549959,
+      "coef": 0.17404956074755565,
+      "impute": null
+    },
+    {
+      "name": "log1p_cme_speed",
+      "group": "CME",
+      "mean": 2.0889495379174297,
+      "scale": 3.1241122704286544,
+      "coef": 0.2188880429536172,
+      "impute": null
+    },
+    {
+      "name": "cme_half_angle_deg",
+      "group": "CME",
+      "mean": 12.44308943089431,
+      "scale": 20.338767425144464,
+      "coef": 0.28109298479051453,
+      "impute": null
+    }
+  ],
+  "intercept": -2.492827182151743,
+  "hyperparameters": {
+    "C": 0.01,
+    "penalty": "l2",
+    "classWeight": null,
+    "candidates": [
+      {
+        "C": 0.01,
+        "validationRocAuc": 0.9566964285714286
+      },
+      {
+        "C": 0.1,
+        "validationRocAuc": 0.9513392857142857
+      },
+      {
+        "C": 1.0,
+        "validationRocAuc": 0.9540178571428573
+      },
+      {
+        "C": 10.0,
+        "validationRocAuc": 0.9540178571428571
+      }
+    ]
+  },
+  "threshold": 0.17870575472227487,
+  "thresholdRule": "Highest TSS on the validation set; ties go to the higher threshold",
+  "metrics": {
+    "validation": {
+      "rocAuc": 0.9566964285714286,
+      "prAuc": 0.4057797262825726,
+      "brier": 0.03520904856385979,
+      "brierSkill": 0.21986973501852025,
+      "brierSkillVsOwnBaseRate": 0.13932738251664878,
+      "tss": 0.8705357142857143,
+      "hss": 0.36496350364963503,
+      "precision": 0.2564102564102564,
+      "recall": 1.0,
+      "falseAlarmRatio": 0.7435897435897436,
+      "confusion": {
+        "tp": 10,
+        "fp": 29,
+        "tn": 195,
+        "fn": 0
+      }
+    },
+    "test": {
+      "rocAuc": 0.9000973693054035,
+      "prAuc": 0.47018411279697986,
+      "brier": 0.025655947655015172,
+      "brierSkill": 0.2553059776204446,
+      "brierSkillVsOwnBaseRate": 0.0925753526682026,
+      "tss": 0.7252720739662051,
+      "hss": 0.2768831971999171,
+      "precision": 0.19140625,
+      "recall": 0.8305084745762712,
+      "falseAlarmRatio": 0.80859375,
+      "confusion": {
+        "tp": 49,
+        "fp": 207,
+        "tn": 1760,
+        "fn": 10
+      },
+      "rocAucCi95": [
+        0.839868361837354,
+        0.9539794270819206
+      ],
+      "tssCi95": [
+        0.6276389232551188,
+        0.8204779145921798
+      ]
+    },
+    "testFlaggedAtThreshold": {
+      "flagged": 256,
+      "of": 2026
+    },
+    "bootstrap": {
+      "resamples": 1000,
+      "used": 1000,
+      "seed": 42,
+      "method": "percentile"
+    },
+    "reliability": [
+      {
+        "binFrom": 0.0,
+        "binTo": 0.2,
+        "n": 1825,
+        "meanPredicted": 0.060588152220749765,
+        "observed": 0.006575342465753425
+      },
+      {
+        "binFrom": 0.2,
+        "binTo": 0.4,
+        "n": 196,
+        "meanPredicted": 0.2683518823417824,
+        "observed": 0.22448979591836735
+      },
+      {
+        "binFrom": 0.4,
+        "binTo": 0.6,
+        "n": 5,
+        "meanPredicted": 0.4169023101860942,
+        "observed": 0.6
+      },
+      {
+        "binFrom": 0.6,
+        "binTo": 0.8,
+        "n": 0,
+        "meanPredicted": null,
+        "observed": null
+      },
+      {
+        "binFrom": 0.8,
+        "binTo": 1.0,
+        "n": 0,
+        "meanPredicted": null,
+        "observed": null
+      }
+    ]
+  },
+  "comparisons": {
+    "climatology": {
+      "trainingBaseRate": 0.10772357723577236,
+      "test": {
+        "brier": 0.0344516632120069
+      }
+    },
+    "classOnly": {
+      "C": 0.01,
+      "threshold": 0.11665746987477073,
+      "validation": {
+        "rocAuc": 0.7058035714285714,
+        "tss": 0.4482142857142857,
+        "brierSkill": 0.05545801806044304
+      },
+      "test": {
+        "rocAuc": 0.8272082582957787,
+        "rocAucCi95": [
+          0.763872982985122,
+          0.8837333975802452
+        ],
+        "prAuc": 0.20047877564814026,
+        "tss": 0.5496885043902355,
+        "tssCi95": [
+          0.43033107138206705,
+          0.6647815918365848
+        ],
+        "brierSkill": 0.09846834381175229,
+        "brierSkillVsOwnBaseRate": -0.09853445924145898
+      },
+      "shippedMinusThis": {
+        "rocAuc": 0.07288911100962481,
+        "rocAucCi95": [
+          0.015712359311378595,
+          0.13393749632372876
+        ],
+        "tss": 0.17558356957596954,
+        "tssCi95": [
+          0.07736128279953222,
+          0.27826209746244596
+        ]
+      },
+      "finding": "The whole interval is above zero: on the test years the shipped model had the higher ROC AUC than flare class alone. The whole interval is above zero: on the test years the shipped model had the higher TSS than flare class alone."
+    },
+    "gradientBoosting": {
+      "threshold": 0.030104001138164548,
+      "validation": {
+        "rocAuc": 0.9093749999999999,
+        "tss": 0.775,
+        "brierSkill": -0.22278567437447405
+      },
+      "test": {
+        "rocAuc": 0.8852722463012589,
+        "rocAucCi95": [
+          0.8216924674346574,
+          0.9466727930691226
+        ],
+        "prAuc": 0.47643258422050533,
+        "tss": 0.7167931893186733,
+        "tssCi95": [
+          0.6209794063891099,
+          0.8174262579812281
+        ],
+        "brierSkill": 0.2990060282199085,
+        "brierSkillVsOwnBaseRate": 0.14582474344065754
+      },
+      "shippedMinusThis": {
+        "rocAuc": 0.014825123004144625,
+        "rocAucCi95": [
+          -0.01920637050547811,
+          0.05139355541536956
+        ],
+        "tss": 0.00847888464753177,
+        "tssCi95": [
+          -0.0860673370562559,
+          0.09616506271478785
+        ]
+      },
+      "finding": "The interval includes zero: the test years do not show a difference in ROC AUC between the shipped model and gradient boosting. The interval includes zero: the test years do not show a difference in TSS between the shipped model and gradient boosting."
+    }
+  },
+  "limitations": [
+    "DONKI links are analysts' judgments, and catalog practice changed over time (DONKI notes that the Moon to Mars Space Weather Analysis Office analyzed its primary catalog entries from June 2020 onward); labels carry that noise.",
+    "DONKI keeps SEP records per instrument and energy channel, and some records are model output (instrument names starting MODEL:). A positive label means \"linked to at least one SEP record observed by an instrument\", not a particular intensity or energy. A negative label means \"no qualifying recorded SEP association\", not that no particle event occurred.",
+    "Flares whose only SEP evidence is model output or of unknown origin are excluded as ambiguous. The model was neither trained nor tested on them.",
+    "DONKI attributes some particle events to CMEs from the far side of the Sun with no visible flare. A flare-based model cannot see those.",
+    "CME analyses can come hours after the flare, so the full estimate is not available in the first minutes.",
+    "Positive labels rest on particle events recorded by instruments that DONKI lists and that official instrument documentation supports as measurements. Names without that support count as unknown. How well the estimate carries over to a crew elsewhere in the solar system is not tested.",
+    "Positive cases are few, so the intervals are wide. This is a prototype estimate for a hackathon, not an operational forecast.",
+    "The validation years hold only 10 positive flares out of 234, so the choice of C and the threshold rest on few cases.",
+    "The share of positive flares differs between the splits: 10.8% in the training years, 4.3% in the validation years and 2.9% in the test years. DONKI lists many more flares per year in the recent years, so estimates learned from the early years can be too high or too low for the recent ones.",
+    "On the test years the threshold flagged 256 flares, and 207 of them (80.9%) had no qualifying recorded SEP association; most alerts from this model are expected to be false alarms.",
+    "On the test years the estimates below 20% were too high on average: the mean estimate was 6.1%, and 0.7% of those flares were positive."
+  ],
+  "sourceIds": [
+    "donki",
+    "sep-ml-inceoglu-2018",
+    "sep-gsep-2023"
+  ],
+  "training": {
+    "seed": 42,
+    "python": "3.12.5",
+    "numpy": "2.5.4",
+    "scikitLearn": "1.9.1",
+    "pandas": "3.1.1",
+    "matplotlib": "3.11.2"
+  }
+}

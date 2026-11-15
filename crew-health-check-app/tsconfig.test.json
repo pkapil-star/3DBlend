@@ -1,0 +1,12 @@
+{
+  // Test files may use Node APIs (reading generated files from disk).
+  // App code is checked by tsconfig.app.json without Node types, so it cannot
+  // use them by accident.
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.test.tsbuildinfo",
+    "types": ["vite/client", "node"]
+  },
+  "include": ["src/**/__tests__", "src/test"],
+  "exclude": []
+}

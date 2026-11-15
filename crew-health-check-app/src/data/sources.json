@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "hrp-hazards",
+      "title": "5 Hazards of Human Spaceflight",
+      "publisher": "NASA Human Research Program",
+      "year": null,
+      "url": "https://www.nasa.gov/hrp/hazards",
+      "kind": "nasa",
+      "keyFinding": "Five hazards: radiation, isolation and confinement, distance from Earth, gravity fields, hostile closed environments; they compound one another.",
+      "verified": false
+    },
+    {
+      "id": "hrp-risks",
+      "title": "Risks of Human Spaceflight",
+      "publisher": "NASA Human Research Program",
+      "year": null,
+      "url": "https://www.nasa.gov/hrp/risks",
+      "kind": "nasa",
+      "keyFinding": "Lists specific risks including behavioral changes, inadequate sleep, SANS, immune changes and radiation-induced cancer.",
+      "verified": false
+    },
+    {
+      "id": "radiation-nasa-ochmo",
+      "title": "Radiation Protection technical brief (NASA-STD-3001)",
+      "publisher": "NASA OCHMO",
+      "year": null,
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/03/radiation-protection-technical-brief-ochmo.pdf",
+      "kind": "nasa",
+      "keyFinding": "Career limit 600 mSv for all astronauts; 250 mSv short-term limit per solar particle event.",
+      "verified": false
+    },
+    {
+      "id": "co2-nasa-ochmo",
+      "title": "Carbon Dioxide technical brief OCHMO-TB-004",
+      "publisher": "NASA OCHMO",
+      "year": null,
+      "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/",
+      "kind": "nasa",
+      "keyFinding": "1-hour average CO2 limited to 3 mmHg; headaches reported between 2.8 and 4.5 mmHg.",
+      "verified": false
+    },
+    {
+      "id": "sleep-barger-2014",
+      "title": "Prevalence of sleep deficiency and use of hypnotic drugs in astronauts before, during, and after spaceflight: an observational study",
+      "publisher": "The Lancet Neurology",
+      "year": 2014,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4188436/",
+      "kind": "peer-reviewed",
+      "keyFinding": "Wrist actigraphy showed about 6 hours of sleep a night in flight (ISS 6.09 h, shuttle 5.96 h), although NASA rules set aside 8.5 hours for sleep.",
+      "verified": false
+    },
+    {
+      "id": "sleep-nasa-ntrs-2024",
+      "title": "Impact of Sleep Shifting Strategies on the ISS",
+      "publisher": "NASA NTRS",
+      "year": 2024,
+      "url": "https://ntrs.nasa.gov/citations/20240002094",
+      "kind": "nasa",
+      "keyFinding": "Crews have historically averaged around six hours of sleep per night.",
+      "verified": false
+    },
+    {
+      "id": "bone-meta-2020",
+      "title": "Systematic review and meta-analysis of bone loss in space travelers",
+      "publisher": "npj Microgravity",
+      "year": 2020,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7200725",
+      "kind": "peer-reviewed",
+      "keyFinding": "Cites a long-known loss rate of 1 to 1.5% a month; measured about 0.8% a month in the lower limbs.",
+      "verified": false
+    },
+    {
+      "id": "exercise-nasa",
+      "title": "Astronaut exercise research on the station",
+      "publisher": "NASA",
+      "year": null,
+      "url": "https://www.nasa.gov/missions/station/iss-research/astronaut-exercise",
+      "kind": "nasa",
+      "keyFinding": "Exercise is the main countermeasure against bone and muscle loss; crew members average about two hours of exercise a day.",
+      "verified": false
+    },
+    {
+      "id": "exercise-nasa-ntrs-2009",
+      "title": "An Evidence-Based Approach To Exercise Prescriptions on ISS",
+      "publisher": "NASA NTRS",
+      "year": 2009,
+      "url": "https://ntrs.nasa.gov/api/citations/20090013286/downloads/20090013286.pdf",
+      "kind": "nasa",
+      "keyFinding": "Station exercise is scheduled at 2.5 hours a day, six days a week; early crews still lost 2 to 7% bone mineral density depending on site.",
+      "verified": false
+    },
+    {
+      "id": "sans-nasa-2023",
+      "title": "SANS: 2023 Clinical Update",
+      "publisher": "NASA NTRS",
+      "year": 2023,
+      "url": "https://ntrs.nasa.gov/citations/20220014606",
+      "kind": "nasa",
+      "keyFinding": "About 66% of long-duration astronauts show the earliest signs of SANS.",
+      "verified": false
+    },
+    {
+      "id": "fluid-shift-nasa",
+      "title": "Ensuring Astronaut Health (Cardiovascular and Vision Laboratory)",
+      "publisher": "NASA",
+      "year": null,
+      "url": "https://www.nasa.gov/?p=207552",
+      "kind": "nasa",
+      "keyFinding": "About two liters of fluid shift toward the head in weightlessness, affecting heart, eyes and brain.",
+      "verified": false
+    },
+    {
+      "id": "temp-stahn-2017",
+      "title": "Increased core body temperature in astronauts during long-duration space missions",
+      "publisher": "Scientific Reports",
+      "year": 2017,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5701078/",
+      "kind": "peer-reviewed",
+      "keyFinding": "Resting core temperature about 1 °C higher in flight, developing over about 2.5 months.",
+      "verified": false
+    },
+    {
+      "id": "bp-norsk-2015",
+      "title": "Fluid shifts, vasodilatation and ambulatory blood pressure reduction during long duration spaceflight",
+      "publisher": "The Journal of Physiology",
+      "year": 2015,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4324706/",
+      "kind": "peer-reviewed",
+      "keyFinding": "In eight astronauts on the station, 24-hour average blood pressure was 8 to 10 mmHg lower in flight than before flight (systolic 8, diastolic 9, mean arterial 10 mmHg); the 24-hour average heart rate was unchanged.",
+      "verified": false
+    },
+    {
+      "id": "insulin-commsbio-2024",
+      "title": "Spaceflight induces changes in gene expression profiles linked to insulin and estrogen",
+      "publisher": "Communications Biology",
+      "year": 2024,
+      "url": "https://doi.org/10.1038/s42003-023-05213-2",
+      "kind": "peer-reviewed",
+      "keyFinding": "Insulin resistance has been reported in spaceflight, but studies conflict.",
+      "verified": false
+    },
+    {
+      "id": "hypoglycemia-ada-2025",
+      "title": "6. Glycemic Goals and Hypoglycemia: Standards of Care in Diabetes—2025",
+      "publisher": "Diabetes Care (American Diabetes Association)",
+      "year": 2025,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11635034/",
+      "kind": "reference",
+      "keyFinding": "A glucose level below 70 mg/dL is level 1 hypoglycemia, and 70 mg/dL is recognized as the level where people without diabetes start responding to falling glucose; for a conscious person, glucose is the preferred treatment, repeated after 15 minutes if still low.",
+      "verified": false
+    },
+    {
+      "id": "immune-herpes-iss",
+      "title": "Immune System Dysregulation and Herpesvirus Reactivation Persist During Long-Duration Spaceflight",
+      "publisher": "(find journal)",
+      "year": null,
+      "url": "https://core.ac.uk/works/15261213",
+      "kind": "reference",
+      "keyFinding": "Varicella-zoster virus reactivated in about half of astronauts on six-month missions.",
+      "verified": false
+    },
+    {
+      "id": "immune-mehta-2017",
+      "title": "Latent virus reactivation in astronauts on the International Space Station",
+      "publisher": "npj Microgravity",
+      "year": 2017,
+      "url": "https://doaj.org/article/f32947e92776479e9e3b840364e87d36",
+      "kind": "peer-reviewed",
+      "keyFinding": "Reactivation of latent herpes viruses increases on long missions alongside stress hormones.",
+      "verified": false
+    },
+    {
+      "id": "delay-nasa-m2m-2023",
+      "title": "Human Health and Performance (Moon to Mars Architecture)",
+      "publisher": "NASA NTRS",
+      "year": 2023,
+      "url": "https://ntrs.nasa.gov/api/citations/20230015521/downloads/Human%20Health%20and%20Performance.pdf",
+      "kind": "nasa",
+      "keyFinding": "One-way communication delay to Mars up to 22 minutes; crews need Earth independence.",
+      "verified": false
+    },
+    {
+      "id": "delay-nasa-timedelay-2017",
+      "title": "NASA technical report 20170011337 on operations under communication time delay (confirm exact title)",
+      "publisher": "NASA NTRS",
+      "year": 2017,
+      "url": "https://ntrs.nasa.gov/api/citations/20170011337/downloads/20170011337.pdf",
+      "kind": "nasa",
+      "keyFinding": "One-way light time to Mars about 182 s at closest and about 1338 s at farthest.",
+      "verified": false
+    },
+    {
+      "id": "gateway-medical-conops",
+      "title": "Recommendation for a Medical System Concept of Operations for Gateway Missions (NASA HRP-48012)",
+      "publisher": "NASA Human Research Program (NTRS 20200001341)",
+      "year": null,
+      "url": "https://ntrs.nasa.gov/api/citations/20200001341/downloads/20200001341.pdf#page=17",
+      "kind": "nasa",
+      "keyFinding": "Gateway missions face an average one-way light-time delay of approximately 1.3 seconds between the Moon and Earth (page 17, section 4.2 Communication).",
+      "verified": false
+    },
+    {
+      "id": "autonomy-nasa-exmc-2021",
+      "title": "Development of Medical Capabilities and Technologies (decadal topical paper)",
+      "publisher": "NASA NTRS",
+      "year": 2021,
+      "url": "https://ntrs.nasa.gov/api/citations/20210023828/downloads/Decadal%20Topical%20-%20Development%20of%20Medical%20Capabilities%20and%20Technologies_New%20Graphic.docx.pdf",
+      "kind": "nasa",
+      "keyFinding": "Mars delays demand crew medical autonomy and decision support usable by non-medical crew.",
+      "verified": false
+    },
+    {
+      "id": "donki",
+      "title": "Space Weather Database Of Notifications, Knowledge, Information (DONKI)",
+      "publisher": "NASA CCMC",
+      "year": null,
+      "url": "https://ccmc.gsfc.nasa.gov/tools/DONKI",
+      "kind": "nasa",
+      "keyFinding": "Catalog of solar flares, solar energetic particle events and related space weather.",
+      "verified": false
+    },
+    {
+      "id": "spaceapps-challenge",
+      "title": "Challenge page",
+      "publisher": "NASA Space Apps",
+      "year": null,
+      "url": "https://www.spaceappschallenge.org/2026/challenges/health-monitoring-software/",
+      "kind": "event-rules",
+      "keyFinding": "Official brief. Its Resources tab must be added to this registry.",
+      "verified": false
+    },
+    {
+      "id": "anthropometry-nasa-ntrs-2024",
+      "title": "Anthropometric Measurement Procedures at the Anthropometry and Biomechanics Facility",
+      "publisher": "NASA NTRS",
+      "year": 2024,
+      "url": "https://ntrs.nasa.gov/citations/20240002694",
+      "kind": "nasa",
+      "keyFinding": "NASA documents standardized body measurements and uses 3D scanning for human-system design.",
+      "verified": false
+    },
+    {
+      "id": "biomonitor-csa",
+      "title": "Bio-Monitor: Keeping an eye on astronauts' vital signs",
+      "publisher": "Canadian Space Agency",
+      "year": null,
+      "url": "https://www.asc-csa.gc.ca/eng/sciences/bio-monitor.asp",
+      "kind": "space-agency",
+      "keyFinding": "A wearable system that monitors astronauts' vital signs on the station, including skin temperature.",
+      "verified": false
+    },
+    {
+      "id": "deltoid-uw-atlas",
+      "title": "Deltoid, Musculoskeletal Atlas",
+      "publisher": "University of Washington, Department of Radiology",
+      "year": null,
+      "url": "https://rad.uw.edu/muscle-atlas/deltoid",
+      "kind": "reference",
+      "keyFinding": "Reference used to place and label the deltoid area on the outer shoulder.",
+      "verified": false
+    },
+    {
+      "id": "sep-ml-inceoglu-2018",
+      "title": "Using Machine Learning Methods to Forecast If Solar Flares Will Be Associated with CMEs and SEPs",
+      "publisher": "The Astrophysical Journal (arXiv version linked; confirm the journal reference)",
+      "year": 2018,
+      "url": "https://arxiv.org/abs/1806.07117",
+      "kind": "reference",
+      "keyFinding": "Trained support vector machine and neural network classifiers on DONKI flare, CME and SEP associations.",
+      "verified": false
+    },
+    {
+      "id": "sep-gsep-2023",
+      "title": "Analysis of SEP events and their possible precursors based on the GSEP Catalog",
+      "publisher": "The Astrophysical Journal Supplement Series (arXiv version linked; confirm)",
+      "year": 2023,
+      "url": "https://arxiv.org/abs/2306.11318",
+      "kind": "reference",
+      "keyFinding": "Studies flare magnitude, location and rise time and CME speed and width as SEP predictors, comparing random forest, gradient boosting, logistic regression and support vector machine classifiers.",
+      "verified": false
+    },
+    {
+      "id": "hrp-artemis2-data-challenge",
+      "title": "Winners of NASA HRP's Artemis II Data Methodology Challenge",
+      "publisher": "NASA Human Research Program",
+      "year": null,
+      "url": "https://www.nasa.gov/hrp/winners-of-nasa-hrps-artemis-ii-data-methodology-challenge/",
+      "kind": "nasa",
+      "keyFinding": "With only four people on board a mission like Artemis II, astronaut health data is limited, and NASA sought methods for such small, high-dimensional datasets.",
+      "verified": false
+    },
+    {
+      "id": "osdr-i4-nasa",
+      "title": "Inspiration4 mission datasets on NASA OSDR (confirm the exact title)",
+      "publisher": "NASA Open Science Data Repository",
+      "year": null,
+      "url": "https://www.nasa.gov/osdr-latest-news-i4-mission-datasets/",
+      "kind": "nasa",
+      "keyFinding": "Inspiration4 data covers four civilian astronauts on a three-day mission; the NASA Twins Study covered one astronaut and one ground control.",
+      "verified": false
+    },
+    {
+      "id": "osdr-i4-access",
+      "title": "Inspiration4 Mission: Commercial Astronaut Data Now Available on OSDR",
+      "publisher": "NASA",
+      "year": null,
+      "url": "https://www.nasa.gov/?p=729457",
+      "kind": "nasa",
+      "keyFinding": "Processed Inspiration4 data are public; raw data, including genetic sequence data, need an application with board approval.",
+      "verified": false
+    },
+    {
+      "id": "lsda-privacy-ntrs-2024",
+      "title": "Why We Do What We Do: Data Reuse, Open Access, and Privacy in Data Management at the Life Sciences Data Archive",
+      "publisher": "NASA NTRS",
+      "year": 2024,
+      "url": "https://ntrs.nasa.gov/citations/20240012051",
+      "kind": "nasa",
+      "keyFinding": "The Life Sciences Data Archive protects participants' privacy and consent decisions when it provides human research data for new studies.",
+      "verified": false
+    },
+    {
+      "id": "hrp-ongoing-research",
+      "title": "Ongoing HRP Research in Space",
+      "publisher": "NASA Human Research Program",
+      "year": null,
+      "url": "https://www.nasa.gov/hrp/ongoing-hrp-research/",
+      "kind": "nasa",
+      "keyFinding": "The Human Research Program's overview of its studies now running in space (challenge Resources tab).",
+      "verified": false
+    },
+    {
+      "id": "csa-radiation-monitoring-2026",
+      "title": "Monitoring Radiation for Astronaut Health",
+      "publisher": "Canadian Space Agency",
+      "year": 2026,
+      "url": "https://www.asc-csa.gc.ca/eng/news/articles/2026/2026-02-26-monitoring-radiation-astronaut-health.asp",
+      "kind": "space-agency",
+      "keyFinding": "Radiation is one of the key challenges beyond Earth's protective shield; the CSA is funding a compact, autonomous instrument (CANS) to measure neutron radiation exposure in space, building on earlier radiation detectors used on the station (challenge Resources tab).",
+      "verified": false
+    },
+    {
+      "id": "csa-why-science",
+      "title": "Why Do We Conduct Science Experiments in Space?",
+      "publisher": "Canadian Space Agency",
+      "year": null,
+      "url": "https://www.asc-csa.gc.ca/eng/iss/science/why-do-we-conduct-science-experiments-in-space.asp",
+      "kind": "space-agency",
+      "keyFinding": "Research on the station aims to understand the health risks of spaceflight and find countermeasures that make space travel safer; Canadian studies cover bones, heart, blood vessels and brain (challenge Resources tab).",
+      "verified": false
+    },
+    {
+      "id": "physionet-sepsis-2019",
+      "title": "Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019 (dataset, version 1.0.0)",
+      "publisher": "PhysioNet",
+      "year": 2019,
+      "url": "https://physionet.org/content/challenge-2019/1.0.0/",
+      "kind": "reference",
+      "keyFinding": "Hourly ICU data for 40,336 patients from two hospital systems with a sepsis label; training and test data of the Earth hospital model.",
+      "verified": false
+    },
+    {
+      "id": "sepsis-ccm-2020",
+      "title": "Early Prediction of Sepsis From Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019",
+      "publisher": "Critical Care Medicine",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31939789/",
+      "kind": "peer-reviewed",
+      "keyFinding": "Describes the challenge data and labels, and concludes that generalizing to other hospital systems remains a challenge.",
+      "verified": false
+    }
+  ]
+}

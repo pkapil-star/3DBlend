@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "note": "Counts and settings only; no patient-level data. Written by ml/build_hospital_dataset.py.",
+  "source": {
+    "dataset": "Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019",
+    "version": "1.0.0",
+    "page": "https://physionet.org/content/challenge-2019/1.0.0/",
+    "licenseOnPage": "Creative Commons Attribution 4.0 International Public License",
+    "licenseFileFirstLine": "## ODC Open Database License (ODbL)",
+    "datasetDoi": "https://doi.org/10.13026/v64v-d857",
+    "retrieved": {
+      "start": "2026-11-15T04:32:12Z",
+      "end": "2026-11-15T04:48:14Z"
+    }
+  },
+  "variables": [
+    {
+      "variable": "HR",
+      "indicator": "heart_rate",
+      "physionet": "Heart rate (beats per minute)",
+      "app": "bpm",
+      "same": true
+    },
+    {
+      "variable": "Temp",
+      "indicator": "body_temp",
+      "physionet": "Temperature (Deg C)",
+      "app": "°C",
+      "same": true
+    },
+    {
+      "variable": "SBP",
+      "indicator": "systolic_bp",
+      "physionet": "Systolic BP (mm Hg)",
+      "app": "mmHg",
+      "same": true
+    },
+    {
+      "variable": "DBP",
+      "indicator": "diastolic_bp",
+      "physionet": "Diastolic BP (mm Hg)",
+      "app": "mmHg",
+      "same": true
+    },
+    {
+      "variable": "Glucose",
+      "indicator": "blood_glucose",
+      "physionet": "Serum glucose (mg/dL)",
+      "app": "mg/dL",
+      "same": true
+    }
+  ],
+  "floors": {
+    "HR": 3.0,
+    "Temp": 0.2,
+    "SBP": 5.0,
+    "DBP": 4.0,
+    "Glucose": 5.0
+  },
+  "baseline": {
+    "hours": [
+      1,
+      24
+    ],
+    "formula": "median and 1.4826 x median absolute deviation, floored at minSpread from src/data/indicators.json (section 10)",
+    "minValues": {
+      "HR": 3,
+      "Temp": 3,
+      "SBP": 3,
+      "DBP": 3,
+      "Glucose": 2
+    }
+  },
+  "carryForwardHours": {
+    "HR": 4,
+    "Temp": 4,
+    "SBP": 4,
+    "DBP": 4,
+    "Glucose": 24
+  },
+  "rows": "every ICU hour after hour 24 with all five variables available after carrying the last value forward within its limit",
+  "exclusionOrder": [
+    "stayAtMost24Hours",
+    "labelInFirst24Hours",
+    "tooFewBaselineValues",
+    "noHourWithAllFive"
+  ],
+  "hospitals": {
+    "A": {
+      "set": "training_setA",
+      "patients": 20336,
+      "excluded": {
+        "stayAtMost24Hours": 4561,
+        "labelInFirst24Hours": 166,
+        "tooFewBaselineValues": 8333,
+        "noHourWithAllFive": 475
+      },
+      "tooFewBaselineValuesByVariable": {
+        "HR": 24,
+        "Temp": 668,
+        "SBP": 447,
+        "DBP": 5875,
+        "Glucose": 4983
+      },
+      "included": 6801,
+      "rows": 138618,
+      "positiveRows": 4284,
+      "patientsWithPositiveRow": 469,
+      "observedValues": {
+        "HR": {
+          "count": 729026,
+          "p1": 51.0,
+          "median": 84.0,
+          "p99": 129.5
+        },
+        "Temp": {
+          "count": 266901,
+          "p1": 35.11,
+          "median": 37.06,
+          "p99": 38.83
+        },
+        "SBP": {
+          "count": 670014,
+          "p1": 81.0,
+          "median": 118.5,
+          "p99": 179.0
+        },
+        "DBP": {
+          "count": 409918,
+          "p1": 36.0,
+          "median": 58.5,
+          "p99": 96.0
+        },
+        "Glucose": {
+          "count": 96656,
+          "p1": 61.0,
+          "median": 124.0,
+          "p99": 319.0
+        }
+      }
+    },
+    "B": {
+      "set": "training_setB",
+      "patients": 20000,
+      "excluded": {
+        "stayAtMost24Hours": 5563,
+        "labelInFirst24Hours": 78,
+        "tooFewBaselineValues": 3124,
+        "noHourWithAllFive": 87
+      },
+      "tooFewBaselineValuesByVariable": {
+        "HR": 5,
+        "Temp": 235,
+        "SBP": 41,
+        "DBP": 41,
+        "Glucose": 2939
+      },
+      "included": 11148,
+      "rows": 233595,
+      "positiveRows": 4905,
+      "patientsWithPositiveRow": 553,
+      "observedValues": {
+        "HR": {
+          "count": 669785,
+          "p1": 49.0,
+          "median": 83.0,
+          "p99": 131.0
+        },
+        "Temp": {
+          "count": 258325,
+          "p1": 35.1,
+          "median": 36.9,
+          "p99": 38.8
+        },
+        "SBP": {
+          "count": 655931,
+          "p1": 80.0,
+          "median": 124.0,
+          "p99": 191.0
+        },
+        "DBP": {
+          "count": 655738,
+          "p1": 39.0,
+          "median": 65.0,
+          "p99": 106.0
+        },
+        "Glucose": {
+          "count": 168860,
+          "p1": 67.0,
+          "median": 128.0,
+          "p99": 329.0
+        }
+      }
+    }
+  },
+  "splits": {
+    "train": {
+      "hospital": "A",
+      "patients": 5441,
+      "rows": 110050,
+      "positiveRows": 3463,
+      "patientsWithPositiveRow": 379
+    },
+    "validation": {
+      "hospital": "A",
+      "patients": 1360,
+      "rows": 28568,
+      "positiveRows": 821,
+      "patientsWithPositiveRow": 90
+    },
+    "test": {
+      "hospital": "B",
+      "patients": 11148,
+      "rows": 233595,
+      "positiveRows": 4905,
+      "patientsWithPositiveRow": 553
+    }
+  },
+  "seed": 42,
+  "validationShare": 0.2
+}

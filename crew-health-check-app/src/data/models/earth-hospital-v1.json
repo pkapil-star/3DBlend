@@ -1,0 +1,686 @@
+{
+  "schemaVersion": 1,
+  "modelId": "earth-hospital",
+  "version": "v1",
+  "kind": "logistic-regression",
+  "createdAt": "2026-11-15T05:16:13Z",
+  "label": "1: an ICU hour that carries the challenge's sepsis label (Sepsis-3 criteria; for a patient who develops sepsis, from 6 hours before onset). 0: any other hour.",
+  "features": [
+    {
+      "name": "z_heart_rate",
+      "indicator": "heart_rate",
+      "physionet": "HR",
+      "mean": 0.1297718801587281,
+      "scale": 2.535156426932869,
+      "coef": 0.11018720958167287
+    },
+    {
+      "name": "z_body_temp",
+      "indicator": "body_temp",
+      "physionet": "Temp",
+      "mean": 0.14829881025081573,
+      "scale": 2.258632700893339,
+      "coef": 0.3631741118123304
+    },
+    {
+      "name": "z_systolic_bp",
+      "indicator": "systolic_bp",
+      "physionet": "SBP",
+      "mean": 0.43556279396070463,
+      "scale": 1.7484125035590756,
+      "coef": 0.09511364451940224
+    },
+    {
+      "name": "z_diastolic_bp",
+      "indicator": "diastolic_bp",
+      "physionet": "DBP",
+      "mean": 0.23578128638914933,
+      "scale": 1.9527036955681611,
+      "coef": -0.024154461745643674
+    },
+    {
+      "name": "z_blood_glucose",
+      "indicator": "blood_glucose",
+      "physionet": "Glucose",
+      "mean": -0.23794897614009977,
+      "scale": 3.1413259527595545,
+      "coef": 0.11543193105726979
+    }
+  ],
+  "intercept": -3.5169651271585383,
+  "threshold": 0.08396421412314263,
+  "targetFalsePositiveRate": 0.01,
+  "thresholdRule": "The lowest output at which at most 1% of hospital A validation hours without the label are flagged (output at or above the threshold).",
+  "headline": "Your recent changes resemble an early-warning pattern from Earth hospital data",
+  "notableText": "Taken together, today’s changes from your normal resemble a pattern the model learned from Earth hospital data",
+  "caveat": "Learned from Earth hospital patients. Never tested on astronauts. A second opinion only.",
+  "hyperparameters": {
+    "C": 10.0,
+    "penalty": "l2",
+    "classWeight": null,
+    "cTrials": [
+      {
+        "C": 0.01,
+        "validationRocAuc": 0.6332209510793257
+      },
+      {
+        "C": 0.1,
+        "validationRocAuc": 0.6333964097994025
+      },
+      {
+        "C": 1.0,
+        "validationRocAuc": 0.6334156808472167
+      },
+      {
+        "C": 10.0,
+        "validationRocAuc": 0.6334176123417585
+      }
+    ]
+  },
+  "data": {
+    "source": "Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019",
+    "version": "1.0.0",
+    "page": "https://physionet.org/content/challenge-2019/1.0.0/",
+    "doi": "https://doi.org/10.13026/v64v-d857",
+    "licenseOnPage": "Creative Commons Attribution 4.0 International Public License",
+    "licenseFileFirstLine": "## ODC Open Database License (ODbL)",
+    "citations": [
+      "Reyna, M., Josef, C., Jeter, R., Shashikumar, S., Moody, B., Westover, M. B., Sharma, A., Nemati, S., & Clifford, G. D. (2019). Early Prediction of Sepsis from Clinical Data: The PhysioNet/Computing in Cardiology Challenge 2019 (version 1.0.0). PhysioNet",
+      "Reyna MA, Josef CS, Jeter R, Shashikumar SP, Westover MB, Nemati S, Clifford GD, Sharma A. Early Prediction of Sepsis From Clinical Data: The PhysioNet/Computing in Cardiology Challenge. Critical Care Medicine 48 2: 210-217 (2019). https://doi.org/10.1097/CCM.0000000000004145",
+      "Pollard, T., Moody, B. E., Lehman, L., Gow, B., Fernandes, C., Xie, C., Johnson, A., Mark, R. G., & Heldt, T. (2026). PhysioNet as a global platform for biomedical research. Nature Health. https://doi.org/10.1038/s44360-026-00096-z"
+    ],
+    "retrieved": {
+      "start": "2026-11-15T04:32:12Z",
+      "end": "2026-11-15T04:48:14Z"
+    },
+    "baseline": {
+      "hours": [
+        1,
+        24
+      ],
+      "formula": "median and 1.4826 x median absolute deviation, floored at minSpread from src/data/indicators.json (section 10)",
+      "minValues": {
+        "HR": 3,
+        "Temp": 3,
+        "SBP": 3,
+        "DBP": 3,
+        "Glucose": 2
+      }
+    },
+    "carryForwardHours": {
+      "HR": 4,
+      "Temp": 4,
+      "SBP": 4,
+      "DBP": 4,
+      "Glucose": 24
+    },
+    "floors": {
+      "HR": 3.0,
+      "Temp": 0.2,
+      "SBP": 5.0,
+      "DBP": 4.0,
+      "Glucose": 5.0
+    },
+    "variables": [
+      {
+        "variable": "HR",
+        "indicator": "heart_rate",
+        "physionet": "Heart rate (beats per minute)",
+        "app": "bpm",
+        "same": true
+      },
+      {
+        "variable": "Temp",
+        "indicator": "body_temp",
+        "physionet": "Temperature (Deg C)",
+        "app": "°C",
+        "same": true
+      },
+      {
+        "variable": "SBP",
+        "indicator": "systolic_bp",
+        "physionet": "Systolic BP (mm Hg)",
+        "app": "mmHg",
+        "same": true
+      },
+      {
+        "variable": "DBP",
+        "indicator": "diastolic_bp",
+        "physionet": "Diastolic BP (mm Hg)",
+        "app": "mmHg",
+        "same": true
+      },
+      {
+        "variable": "Glucose",
+        "indicator": "blood_glucose",
+        "physionet": "Serum glucose (mg/dL)",
+        "app": "mg/dL",
+        "same": true
+      }
+    ],
+    "hospitals": {
+      "A": {
+        "set": "training_setA",
+        "patients": 20336,
+        "excluded": {
+          "stayAtMost24Hours": 4561,
+          "labelInFirst24Hours": 166,
+          "tooFewBaselineValues": 8333,
+          "noHourWithAllFive": 475
+        },
+        "tooFewBaselineValuesByVariable": {
+          "HR": 24,
+          "Temp": 668,
+          "SBP": 447,
+          "DBP": 5875,
+          "Glucose": 4983
+        },
+        "included": 6801,
+        "rows": 138618,
+        "positiveRows": 4284,
+        "patientsWithPositiveRow": 469
+      },
+      "B": {
+        "set": "training_setB",
+        "patients": 20000,
+        "excluded": {
+          "stayAtMost24Hours": 5563,
+          "labelInFirst24Hours": 78,
+          "tooFewBaselineValues": 3124,
+          "noHourWithAllFive": 87
+        },
+        "tooFewBaselineValuesByVariable": {
+          "HR": 5,
+          "Temp": 235,
+          "SBP": 41,
+          "DBP": 41,
+          "Glucose": 2939
+        },
+        "included": 11148,
+        "rows": 233595,
+        "positiveRows": 4905,
+        "patientsWithPositiveRow": 553
+      }
+    },
+    "splits": {
+      "train": {
+        "hospital": "A",
+        "patients": 5441,
+        "rows": 110050,
+        "positiveRows": 3463,
+        "patientsWithPositiveRow": 379
+      },
+      "validation": {
+        "hospital": "A",
+        "patients": 1360,
+        "rows": 28568,
+        "positiveRows": 821,
+        "patientsWithPositiveRow": 90
+      },
+      "test": {
+        "hospital": "B",
+        "patients": 11148,
+        "rows": 233595,
+        "positiveRows": 4905,
+        "patientsWithPositiveRow": 553
+      }
+    }
+  },
+  "metrics": {
+    "validation": {
+      "rows": 28568,
+      "positiveRows": 821,
+      "rocAuc": 0.6334176123417585,
+      "prAuc": 0.06509835282974771,
+      "brier": 0.027611775792799022,
+      "brierSkill": 0.011039477671500469,
+      "brierSkillVsOwnBaseRate": 0.010775597009591463,
+      "confusion": {
+        "tp": 32,
+        "fp": 277,
+        "tn": 27470,
+        "fn": 789
+      },
+      "sensitivity": 0.0389768574908648,
+      "falsePositiveRate": 0.009983061231844885,
+      "precision": 0.10355987055016182,
+      "tss": 0.028993796259019912,
+      "hss": 0.041573449772336554,
+      "intervals": {
+        "rocAuc": [
+          0.5825415382575326,
+          0.6846996776726931
+        ],
+        "tss": [
+          0.000740031649126259,
+          0.0650662866129553
+        ],
+        "sensitivity": [
+          0.008875411885013068,
+          0.07547228189800112
+        ],
+        "falsePositiveRate": [
+          0.005447646061311891,
+          0.015190802937986468
+        ]
+      }
+    },
+    "test": {
+      "rows": 233595,
+      "positiveRows": 4905,
+      "rocAuc": 0.6167941596530235,
+      "prAuc": 0.051180065325096585,
+      "brier": 0.020486508280105734,
+      "brierSkill": 0.008713336604641393,
+      "brierSkillVsOwnBaseRate": 0.0034276288569987244,
+      "confusion": {
+        "tp": 442,
+        "fp": 3527,
+        "tn": 225163,
+        "fn": 4463
+      },
+      "sensitivity": 0.09011213047910295,
+      "falsePositiveRate": 0.015422624513533604,
+      "precision": 0.11136306374401612,
+      "tss": 0.07468950596556935,
+      "hss": 0.08238113657942553,
+      "intervals": {
+        "rocAuc": [
+          0.5942281615436179,
+          0.6398980554310976
+        ],
+        "tss": [
+          0.05598122093111105,
+          0.09538067828533858
+        ],
+        "sensitivity": [
+          0.07092098748386234,
+          0.11220065739474083
+        ],
+        "falsePositiveRate": [
+          0.01321748588156482,
+          0.017925120860909614
+        ]
+      }
+    },
+    "highestTssOnValidation": {
+      "threshold": 0.03502104685083383,
+      "tss": 0.22744098878122126,
+      "sensitivity": 0.4981729598051157,
+      "falsePositiveRate": 0.27073197102389446
+    },
+    "testReliability": [
+      {
+        "from": 0.00015474752058938822,
+        "to": 0.01831406314298757,
+        "n": 23360,
+        "meanOutput": 0.0146355515907312,
+        "observed": 0.019563356164383563
+      },
+      {
+        "from": 0.01831450083576834,
+        "to": 0.021951821625762785,
+        "n": 23360,
+        "meanOutput": 0.02026404375066371,
+        "observed": 0.012928082191780823
+      },
+      {
+        "from": 0.021951957764343832,
+        "to": 0.024555380932825388,
+        "n": 23360,
+        "meanOutput": 0.02328418538627987,
+        "observed": 0.014212328767123288
+      },
+      {
+        "from": 0.024555442057289694,
+        "to": 0.026848505722488293,
+        "n": 23360,
+        "meanOutput": 0.02570342087000146,
+        "observed": 0.012328767123287671
+      },
+      {
+        "from": 0.026848641585658507,
+        "to": 0.029075176578027166,
+        "n": 23360,
+        "meanOutput": 0.02795797812443438,
+        "observed": 0.015667808219178084
+      },
+      {
+        "from": 0.029075270042210274,
+        "to": 0.031547688969369866,
+        "n": 23359,
+        "meanOutput": 0.030280478481242396,
+        "observed": 0.016225009632261655
+      },
+      {
+        "from": 0.0315477630487009,
+        "to": 0.034591870462457985,
+        "n": 23359,
+        "meanOutput": 0.032999939275264276,
+        "observed": 0.01643905989126247
+      },
+      {
+        "from": 0.03459191625953872,
+        "to": 0.03913541598472069,
+        "n": 23359,
+        "meanOutput": 0.03666958856956722,
+        "observed": 0.01982105398347532
+      },
+      {
+        "from": 0.039135500316278965,
+        "to": 0.048295449861774864,
+        "n": 23359,
+        "meanOutput": 0.043005582766662435,
+        "observed": 0.026413801960700374
+      },
+      {
+        "from": 0.04829576841536484,
+        "to": 0.7348819785478039,
+        "n": 23359,
+        "meanOutput": 0.0698579969361784,
+        "observed": 0.056380838220814244
+      }
+    ],
+    "testPatients": {
+      "patientsWithLabel": 553,
+      "ofThemFlaggedAtLeastOnce": 139,
+      "patientsWithoutLabel": 10595,
+      "ofThemFlaggedAtLeastOnceWithout": 399
+    },
+    "bootstrap": {
+      "resamples": 1000,
+      "used": 1000,
+      "seed": 42,
+      "method": "patients resampled with replacement; percentile 95% interval"
+    }
+  },
+  "comparisons": {
+    "climatology": {
+      "trainingBaseRate": 0.03146751476601545
+    },
+    "temperatureOnly": {
+      "threshold": 0.07982886808580264,
+      "validation": {
+        "rows": 28568,
+        "positiveRows": 821,
+        "rocAuc": 0.6030486578154173,
+        "prAuc": 0.045963397574128234,
+        "brier": 0.027806179715870936,
+        "brierSkill": 0.0040765859420214675,
+        "brierSkillVsOwnBaseRate": 0.0038108473975813676,
+        "confusion": {
+          "tp": 21,
+          "fp": 274,
+          "tn": 27473,
+          "fn": 800
+        },
+        "sensitivity": 0.025578562728380026,
+        "falsePositiveRate": 0.009874941435110102,
+        "precision": 0.0711864406779661,
+        "tss": 0.015703621293269923,
+        "hss": 0.0227873571327247
+      },
+      "test": {
+        "rows": 233595,
+        "positiveRows": 4905,
+        "rocAuc": 0.611985674378409,
+        "prAuc": 0.05063939693706003,
+        "brier": 0.020477108691161844,
+        "brierSkill": 0.009168157261928576,
+        "brierSkillVsOwnBaseRate": 0.0038848746947718195,
+        "confusion": {
+          "tp": 403,
+          "fp": 3004,
+          "tn": 225686,
+          "fn": 4502
+        },
+        "sensitivity": 0.08216106014271152,
+        "falsePositiveRate": 0.01313568586295859,
+        "precision": 0.11828588200763135,
+        "tss": 0.06902537427975293,
+        "hss": 0.0811515357695025
+      },
+      "testIntervals": {
+        "rocAuc": [
+          0.5903264070240481,
+          0.6342458249048539
+        ],
+        "tss": [
+          0.05118840455642157,
+          0.08858710747479082
+        ],
+        "sensitivity": [
+          0.06349764960380191,
+          0.10264770675325492
+        ],
+        "falsePositiveRate": [
+          0.011165593599424614,
+          0.01536474416732447
+        ]
+      },
+      "shippedMinusThis": {
+        "test": {
+          "rocAuc": {
+            "value": 0.004808485274614527,
+            "ci95": [
+              -0.00606022607340527,
+              0.015292740329895568
+            ],
+            "finding": "inconclusive"
+          },
+          "tss": {
+            "value": 0.00566413168581642,
+            "ci95": [
+              -0.0030583928359760445,
+              0.015035632797433406
+            ],
+            "finding": "inconclusive"
+          }
+        }
+      }
+    },
+    "gradientBoosting": {
+      "threshold": 0.1608966761576353,
+      "validation": {
+        "rows": 28568,
+        "positiveRows": 821,
+        "rocAuc": 0.61920361231621,
+        "prAuc": 0.04305079372770627,
+        "brier": 0.028382359084062614,
+        "brierSkill": -0.016560212400747634,
+        "brierSkillVsOwnBaseRate": -0.016831457385418077,
+        "confusion": {
+          "tp": 15,
+          "fp": 277,
+          "tn": 27470,
+          "fn": 806
+        },
+        "sensitivity": 0.018270401948842874,
+        "falsePositiveRate": 0.009983061231844885,
+        "precision": 0.05136986301369863,
+        "tss": 0.00828734071699799,
+        "hss": 0.012056690483551196
+      },
+      "test": {
+        "rows": 233595,
+        "positiveRows": 4905,
+        "rocAuc": 0.619396859897277,
+        "prAuc": 0.03527283145805624,
+        "brier": 0.021588024937753088,
+        "brierSkill": -0.04458607183061671,
+        "brierSkillVsOwnBaseRate": -0.050155981017171156,
+        "confusion": {
+          "tp": 229,
+          "fp": 3379,
+          "tn": 225311,
+          "fn": 4676
+        },
+        "sensitivity": 0.04668705402650357,
+        "falsePositiveRate": 0.014775460230005685,
+        "precision": 0.06347006651884701,
+        "tss": 0.031911593796497884,
+        "hss": 0.03665371645513186
+      },
+      "testIntervals": {
+        "rocAuc": [
+          0.6012067186564721,
+          0.6377235427201315
+        ],
+        "tss": [
+          0.022334638630314534,
+          0.041880973935795714
+        ],
+        "sensitivity": [
+          0.036862070224824926,
+          0.05708428965651813
+        ],
+        "falsePositiveRate": [
+          0.013505784075626833,
+          0.016231910902595986
+        ]
+      },
+      "shippedMinusThis": {
+        "test": {
+          "rocAuc": {
+            "value": -0.002602700244253464,
+            "ci95": [
+              -0.018514053800185126,
+              0.013416923253905982
+            ],
+            "finding": "inconclusive"
+          },
+          "tss": {
+            "value": 0.042777912169071466,
+            "ci95": [
+              0.02613810418800915,
+              0.061098681629833666
+            ],
+            "finding": "higher"
+          }
+        }
+      }
+    }
+  },
+  "scenarioCheck": {
+    "note": "A sanity check in simulation, not a validation: the simulated scenarios scored like the app, today's routine readings against the app baseline.",
+    "fever": [
+      {
+        "scenario": "fever",
+        "moment": "scenario moment",
+        "day": 100,
+        "crewId": "c1",
+        "scored": false,
+        "output": null,
+        "notable": false
+      },
+      {
+        "scenario": "fever",
+        "moment": "scenario moment",
+        "day": 100,
+        "crewId": "c2",
+        "scored": false,
+        "output": null,
+        "notable": false
+      },
+      {
+        "scenario": "fever",
+        "moment": "scenario moment",
+        "day": 100,
+        "crewId": "c3",
+        "scored": false,
+        "output": null,
+        "notable": false
+      },
+      {
+        "scenario": "fever",
+        "moment": "day before",
+        "day": 99,
+        "crewId": "c1",
+        "scored": true,
+        "output": 0.11537887327036549,
+        "notable": true,
+        "z": [
+          6.0,
+          8.000000000000007,
+          -1.0,
+          -0.25,
+          0.7
+        ]
+      },
+      {
+        "scenario": "fever",
+        "moment": "day before",
+        "day": 99,
+        "crewId": "c2",
+        "scored": true,
+        "output": 0.023494428928101444,
+        "notable": false,
+        "z": [
+          1.0,
+          -1.0000000000000142,
+          -1.4,
+          0.375,
+          0.8
+        ]
+      },
+      {
+        "scenario": "fever",
+        "moment": "day before",
+        "day": 99,
+        "crewId": "c3",
+        "scored": true,
+        "output": 0.027777028432496183,
+        "notable": false,
+        "z": [
+          0.6666666666666666,
+          0.0,
+          0.2,
+          0.0,
+          -1.0
+        ]
+      }
+    ],
+    "notableAnywhere": [
+      {
+        "scenario": "fever",
+        "moment": "day before",
+        "day": 99,
+        "crewId": "c1",
+        "scored": true,
+        "output": 0.11537887327036549,
+        "notable": true,
+        "z": [
+          6.0,
+          8.000000000000007,
+          -1.0,
+          -0.25,
+          0.7
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "ICU patients are already ill: the model learned from people in intensive care, not from healthy people in space.",
+    "The data is hourly; the app has one reading a day. The baseline window differs too: the first 24 ICU hours here, about four weeks of days in the app.",
+    "ICU glucose is not a fasting value, while the app asks for fasting blood sugar.",
+    "Spaceflight changes physiology (fluid shifts, a higher body temperature, lower blood pressure); the model has never seen it.",
+    "It has never been tested on astronauts.",
+    "Generalizing to other hospital systems is already limited on Earth, as the challenge paper concludes; hospital B measures it here.",
+    "Five shared variables are a small part of what clinicians use.",
+    "The label is the challenge's hourly label: for a patient who develops sepsis it is 1 from 6 hours before onset (Sepsis-3 criteria). Hours after onset count as labelled too.",
+    "The exclusions remove many patients: 8333 of 20336 in hospital A have too few early values, mostly diastolic blood pressure and glucose.",
+    "Missing hours are filled from earlier hours only within fixed limits (vital signs 4 hours, glucose 24 hours); these are processing choices, not findings.",
+    "The operating point is set on hospital A validation hours; on hospital B the share of flagged unlabelled hours differs, and the card reports it.",
+    "The output is not a validated probability for anyone in space, so the crew card shows no number."
+  ],
+  "sourceIds": [
+    "physionet-sepsis-2019",
+    "sepsis-ccm-2020"
+  ],
+  "software": {
+    "seed": 42,
+    "python": "3.12.5",
+    "numpy": "2.5.4",
+    "scikitLearn": "1.9.1"
+  }
+}

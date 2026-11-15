@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "decision": "D22 (ARCHITECTURE.md section 26.4)",
+  "rules": [
+    "model: the name is a forecast or other model output. A MODEL: prefix is enough, also when the name contains a real instrument.",
+    "observed: official instrument documentation shows an instrument that measures particles, and the DONKI record context fits a measurement. Both are recorded here.",
+    "unknown: every other name, including a name without that support and a name missing from this table."
+  ],
+  "checked": {
+    "on": "2026-11-15",
+    "by": "Claude Code. Pages were retrieved by a web fetch service on its behalf and read on that day. Nobody on the team has re-read them yet."
+  },
+  "sources": {
+    "nesdis-seiss": {
+      "title": "Space Environment In-Situ Suite (SEISS)",
+      "publisher": "NOAA NESDIS",
+      "url": "https://www.nesdis.noaa.gov/our-satellites/currently-flying/goes-east-west/space-environment-situ-suite-seiss-0",
+      "says": "The Solar and Galactic Proton Sensor (SGPS) of SEISS measures solar and galactic protons, from 1 to 500 MeV in bins plus an integral channel above 500 MeV.",
+      "note": "Reached by redirect from https://www.goes-r.gov/spacesegment/seiss.html."
+    },
+    "ncei-seiss": {
+      "title": "GOES-R Space Environment In Situ Suite (SEISS)",
+      "publisher": "NOAA NCEI",
+      "url": "https://www.ncei.noaa.gov/products/goes-r-space-environment-in-situ",
+      "says": "Each SGPS observes protons of 1 to 500 MeV; its proton fluxes are derived from in situ measurements of proton count rates."
+    },
+    "swpc-goes-proton-flux": {
+      "title": "GOES Proton Flux",
+      "publisher": "NOAA / NWS Space Weather Prediction Center",
+      "url": "https://www.spaceweather.gov/products/goes-proton-flux",
+      "says": "Integral proton fluxes at and above 10 MeV and 100 MeV, among others, are given as observed by the SWPC primary GOES satellite. The page does not name the instrument.",
+      "note": "Reached by redirect from https://www.swpc.noaa.gov/products/goes-proton-flux."
+    },
+    "ncei-goes-1-15": {
+      "title": "GOES 1-15 Space Weather Instruments",
+      "publisher": "NOAA NCEI",
+      "url": "https://www.ncei.noaa.gov/products/goes-1-15/space-weather-instruments",
+      "says": "The Energetic Particle Sensor (EPS) detectors of the Space Environment Monitor measure proton, alpha-particle and electron fluxes. On GOES 13 to 15 the EPS was renamed EPEAD. Integral proton fluxes are derived from the instrument channels. GOES-13 data run from May 2010 to December 2017."
+    },
+    "stereo-het-paper": {
+      "title": "The High Energy Telescope for STEREO",
+      "publisher": "T. T. von Rosenvinge and others, Space Science Reviews 136, 391-435 (2008), DOI 10.1007/s11214-007-9300-5; copy hosted by the instrument team at Caltech",
+      "url": "https://izw1.caltech.edu/STEREO/docs/STEREO-HET-SSR.pdf",
+      "says": "The IMPACT investigation carries solar energetic particle instruments on each of the two STEREO spacecraft. Its High Energy Telescope measures protons that stop in the telescope from about 13 to 40 MeV and penetrating protons up to about 100 MeV.",
+      "note": "The web fetch service saved the PDF; Claude Code extracted its text and read the abstract and the first pages."
+    },
+    "caltech-stereo-sep": {
+      "title": "The SEP Instrument Suite on STEREO",
+      "publisher": "Caltech Space Radiation Laboratory (instrument team site)",
+      "url": "https://izw1.caltech.edu/STEREO/",
+      "says": "IMPACT is the In-Situ Measurements of Particles and CME Transients investigation; it provides measurements of solar energetic particles, and the High Energy Telescope is one element of its particle suite. The page has sections for STEREO-A and STEREO-B."
+    },
+    "nasa-stereo": {
+      "title": "STEREO A & B",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/mission/stereo/",
+      "says": "STEREO-B has not returned data since 2014. The page does not describe IMPACT."
+    },
+    "kiel-costep": {
+      "title": "SOHO - COSTEP (Comprehensive Suprathermal and Energetic Particle Analyzer)",
+      "publisher": "Institute for Experimental and Applied Physics, University of Kiel (instrument team site)",
+      "url": "https://www.ieap.uni-kiel.de/et/ag-heber/costep/",
+      "says": "COSTEP is an experiment on SOHO with two instruments, EPHIN (Electron Proton Helium Instrument) and LION; both measure energetic particles emitted by the Sun."
+    },
+    "kiel-ephin": {
+      "title": "EPHIN (Electron Proton Helium Instrument)",
+      "publisher": "Institute for Experimental and Applied Physics, University of Kiel (instrument team site), based on R. Mueller-Mellin and others, Solar Physics 162, 483-504 (1995)",
+      "url": "https://www.ieap.uni-kiel.de/et/ag-heber/costep/ephin.php",
+      "says": "EPHIN is a telescope that measures energy spectra of electrons, and of hydrogen and helium isotopes from 4 MeV per nucleon to more than 53 MeV per nucleon; particles are registered in the sensor by ionization."
+    },
+    "ace-epam-l2": {
+      "title": "EPAM Level 2 Data Documentation",
+      "publisher": "ACE Science Center, Caltech",
+      "url": "https://izw1.caltech.edu/ACE/ASC/level2/epam_l2desc.html",
+      "says": "EPAM covers ions from about 0.05 to 5.0 MeV per nucleon and electrons from about 0.04 to 0.31 MeV. The page lists no proton channel above 30 MeV."
+    },
+    "ace-sis-l2": {
+      "title": "SIS Level 2 Data Documentation",
+      "publisher": "ACE Science Center, Caltech",
+      "url": "https://izw1.caltech.edu/ACE/ASC/level2/sis_l2desc.html",
+      "says": "SIS is an isotope spectrometer for helium to nickel from about 10 to 100 MeV per nucleon. The page does not mention integral proton fluxes."
+    },
+    "swpc-ace-rtsw": {
+      "title": "ACE Real-Time Solar Wind",
+      "publisher": "NOAA / NWS Space Weather Prediction Center",
+      "url": "https://www.spaceweather.gov/products/ace-real-time-solar-wind",
+      "says": "The highest EPAM proton channel named on the page is about 1 to 2 MeV. High-energy protons are labelled as coming from SIS. No channel above 30 MeV is attributed to EPAM.",
+      "note": "Reached by redirect from https://www.swpc.noaa.gov/products/ace-real-time-solar-wind."
+    }
+  },
+  "instruments": [
+    {
+      "displayName": "GOES-P: SEISS >10 MeV",
+      "class": "observed",
+      "instrument": "Space Environment In-Situ Suite on the GOES-R series satellites; its proton sensor is the SGPS",
+      "basis": "NOAA documents SEISS as a particle instrument whose SGPS measures protons in place from 1 to 500 MeV, and NOAA publishes integral proton fluxes at and above 10 MeV as observed on the primary GOES satellite.",
+      "recordContext": "The name gives a satellite, an instrument and an integral proton channel, and carries no MODEL: prefix. DONKI does not say what the P in GOES-P stands for; reading it as the primary GOES satellite is our reading, not a documented fact.",
+      "sourceIds": ["nesdis-seiss", "ncei-seiss", "swpc-goes-proton-flux"]
+    },
+    {
+      "displayName": "GOES-P: SEISS >100 MeV",
+      "class": "observed",
+      "instrument": "Space Environment In-Situ Suite on the GOES-R series satellites; its proton sensor is the SGPS",
+      "basis": "As for the channel above 10 MeV: the SGPS range covers 100 MeV, and NOAA publishes an integral proton flux at and above 100 MeV as observed on the primary GOES satellite.",
+      "recordContext": "Same as GOES-P: SEISS >10 MeV.",
+      "sourceIds": ["nesdis-seiss", "ncei-seiss", "swpc-goes-proton-flux"]
+    },
+    {
+      "displayName": "GOES13: SEM/EPS >10 MeV",
+      "class": "observed",
+      "instrument": "Energetic Particle Sensor of the Space Environment Monitor on GOES-13 (named EPEAD on GOES 13 to 15)",
+      "basis": "NOAA NCEI documents the EPS detectors as measuring proton fluxes, says the integral proton fluxes are derived from the instrument channels, and lists GOES-13 data for the years in which DONKI uses this name.",
+      "recordContext": "The name gives the satellite, the instrument and an integral proton channel, and carries no MODEL: prefix.",
+      "sourceIds": ["ncei-goes-1-15", "swpc-goes-proton-flux"]
+    },
+    {
+      "displayName": "GOES13: SEM/EPS >100 MeV",
+      "class": "observed",
+      "instrument": "Energetic Particle Sensor of the Space Environment Monitor on GOES-13 (named EPEAD on GOES 13 to 15)",
+      "basis": "As for the channel above 10 MeV.",
+      "recordContext": "Same as GOES13: SEM/EPS >10 MeV.",
+      "sourceIds": ["ncei-goes-1-15", "swpc-goes-proton-flux"]
+    },
+    {
+      "displayName": "STEREO A: IMPACT 13-100 MeV",
+      "class": "observed",
+      "instrument": "High Energy Telescope of the IMPACT investigation on STEREO-A",
+      "basis": "The instrument paper documents that the High Energy Telescope, carried on each of the two STEREO spacecraft, measures protons from about 13 to about 100 MeV. The energy range in the DONKI name matches it.",
+      "recordContext": "The name gives the spacecraft, the investigation and the proton energy range of its telescope, and carries no MODEL: prefix.",
+      "sourceIds": ["stereo-het-paper", "caltech-stereo-sep"]
+    },
+    {
+      "displayName": "STEREO B: IMPACT 13-100 MeV",
+      "class": "observed",
+      "instrument": "High Energy Telescope of the IMPACT investigation on STEREO-B",
+      "basis": "As for STEREO-A: the same telescope flew on both spacecraft.",
+      "recordContext": "Same as STEREO A: IMPACT 13-100 MeV. NASA says STEREO-B returned no data after 2014, and DONKI has no record with this name after 2014.",
+      "sourceIds": ["stereo-het-paper", "caltech-stereo-sep", "nasa-stereo"]
+    },
+    {
+      "displayName": "SOHO: COSTEP 15.8-39.8 MeV",
+      "class": "observed",
+      "instrument": "COSTEP on SOHO; its EPHIN sensor measures electrons, protons and helium",
+      "basis": "The instrument team documents COSTEP as measuring energetic particles from the Sun, with EPHIN covering hydrogen from 4 to more than 53 MeV, which contains this channel. The page does not list this channel itself.",
+      "recordContext": "DONKI lists the forecast for the same channel under a separate name that starts with MODEL:, so this name is the measurement side of that pair.",
+      "sourceIds": ["kiel-costep", "kiel-ephin"]
+    },
+    {
+      "displayName": "SOHO: COSTEP 28.2-50.1 MeV",
+      "class": "observed",
+      "instrument": "COSTEP on SOHO; its EPHIN sensor measures electrons, protons and helium",
+      "basis": "As for the 15.8-39.8 MeV channel: the documented EPHIN range contains this channel.",
+      "recordContext": "Same as SOHO: COSTEP 15.8-39.8 MeV.",
+      "sourceIds": ["kiel-costep", "kiel-ephin"]
+    },
+    {
+      "displayName": "ACE: EPAM >30 MeV",
+      "class": "unknown",
+      "instrument": "Electron, Proton, and Alpha Monitor on ACE",
+      "basis": "Not supported. The ACE Science Center documents EPAM ions only up to about 5 MeV per nucleon, and none of the pages read gives EPAM a proton channel above 30 MeV. EPAM is a real instrument, but this name does not match its documented channels.",
+      "recordContext": "No MODEL: prefix, but the channel in the name could not be matched to the instrument.",
+      "sourceIds": ["ace-epam-l2", "ace-sis-l2", "swpc-ace-rtsw"]
+    },
+    {
+      "displayName": "MODEL: REleASE:SOHO/EPHIN 15.8-39.8 MeV",
+      "class": "model",
+      "instrument": "REleASE model output",
+      "basis": "The name starts with MODEL:, which is enough under decision D22. The instrument named after the model is treated as the model's input, not as an observation. No REleASE documentation could be retrieved.",
+      "recordContext": "DONKI lists the measured channel under a separate name without the prefix.",
+      "sourceIds": []
+    },
+    {
+      "displayName": "MODEL: REleASE:SOHO/EPHIN 28.2-50.1 MeV",
+      "class": "model",
+      "instrument": "REleASE model output",
+      "basis": "As for the 15.8-39.8 MeV name.",
+      "recordContext": "DONKI lists the measured channel under a separate name without the prefix.",
+      "sourceIds": []
+    },
+    {
+      "displayName": "MODEL: REleASE:ACE/EPAM 15.8-39.8 MeV",
+      "class": "model",
+      "instrument": "REleASE model output",
+      "basis": "The name starts with MODEL:, which is enough under decision D22. The instrument named after the model is treated as the model's input, not as an observation. No REleASE documentation could be retrieved.",
+      "recordContext": "No measured ACE channel of this energy is listed by DONKI.",
+      "sourceIds": []
+    },
+    {
+      "displayName": "MODEL: REleASE:ACE/EPAM 28.2-50.1 MeV",
+      "class": "model",
+      "instrument": "REleASE model output",
+      "basis": "As for the 15.8-39.8 MeV name.",
+      "recordContext": "No measured ACE channel of this energy is listed by DONKI.",
+      "sourceIds": []
+    }
+  ]
+}

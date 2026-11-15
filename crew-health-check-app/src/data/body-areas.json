@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "named": [
+    {
+      "id": "shoulder_r_outer",
+      "label": "Right outer shoulder",
+      "detail": "deltoid area",
+      "patchObject": "patch_shoulder_r_outer",
+      "sourceIds": ["deltoid-uw-atlas"]
+    }
+  ],
+  "general": [
+    {
+      "id": "head",
+      "label": "Head"
+    },
+    {
+      "id": "neck",
+      "label": "Neck"
+    },
+    {
+      "id": "chest",
+      "label": "Chest"
+    },
+    {
+      "id": "upper_back",
+      "label": "Upper back"
+    },
+    {
+      "id": "lower_back",
+      "label": "Lower back"
+    },
+    {
+      "id": "abdomen",
+      "label": "Abdomen"
+    },
+    {
+      "id": "shoulder_l",
+      "label": "Left shoulder"
+    },
+    {
+      "id": "shoulder_r",
+      "label": "Right shoulder"
+    },
+    {
+      "id": "upper_arm_l",
+      "label": "Left upper arm"
+    },
+    {
+      "id": "upper_arm_r",
+      "label": "Right upper arm"
+    },
+    {
+      "id": "forearm_l",
+      "label": "Left forearm"
+    },
+    {
+      "id": "forearm_r",
+      "label": "Right forearm"
+    },
+    {
+      "id": "hand_l",
+      "label": "Left hand"
+    },
+    {
+      "id": "hand_r",
+      "label": "Right hand"
+    },
+    {
+      "id": "hip_l",
+      "label": "Left hip"
+    },
+    {
+      "id": "hip_r",
+      "label": "Right hip"
+    },
+    {
+      "id": "thigh_l",
+      "label": "Left thigh"
+    },
+    {
+      "id": "thigh_r",
+      "label": "Right thigh"
+    },
+    {
+      "id": "knee_l",
+      "label": "Left knee"
+    },
+    {
+      "id": "knee_r",
+      "label": "Right knee"
+    },
+    {
+      "id": "calf_l",
+      "label": "Left calf"
+    },
+    {
+      "id": "calf_r",
+      "label": "Right calf"
+    },
+    {
+      "id": "foot_l",
+      "label": "Left foot"
+    },
+    {
+      "id": "foot_r",
+      "label": "Right foot"
+    }
+  ]
+}

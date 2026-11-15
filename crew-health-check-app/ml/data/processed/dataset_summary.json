@@ -1,0 +1,767 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "NASA CCMC DONKI",
+    "apiBase": "https://ccmc.gsfc.nasa.gov/DONKI-API/get/",
+    "requested": {
+      "end": "2026-10-31",
+      "start": "2010-01-01",
+      "types": [
+        "FLR",
+        "CME",
+        "SEP"
+      ]
+    },
+    "retrievedFrom": "2026-11-14T17:27:07Z",
+    "retrievedTo": "2026-11-14T17:57:49Z",
+    "rawRecords": {
+      "FLR": 3399,
+      "CME": 10332,
+      "SEP": 494
+    },
+    "duplicates": {
+      "FLR": {
+        "exactDuplicatesDropped": 0,
+        "olderVersionsDropped": 0
+      },
+      "CME": {
+        "exactDuplicatesDropped": 0,
+        "olderVersionsDropped": 0
+      },
+      "SEP": {
+        "exactDuplicatesDropped": 0,
+        "olderVersionsDropped": 0
+      }
+    },
+    "rawFiles": "only read; never changed"
+  },
+  "labelPolicy": {
+    "decision": "D22",
+    "positive": "DONKI links the flare, directly or through one linked CME, to at least one SEP record observed by an instrument",
+    "ambiguous": "the linked SEP records are all model output or of unknown origin; excluded from training and testing, never counted as negative",
+    "negative": "no qualifying recorded SEP association; this is not proof that no particle event occurred"
+  },
+  "catalogs": {
+    "FLR": {
+      "M2M_CATALOG": {
+        "2010": 6,
+        "2011": 30,
+        "2012": 33,
+        "2013": 28,
+        "2014": 221,
+        "2015": 152,
+        "2016": 27,
+        "2017": 67,
+        "2018": 4,
+        "2019": 7,
+        "2020": 7,
+        "2021": 101,
+        "2022": 304,
+        "2023": 479,
+        "2024": 1128,
+        "2025": 464,
+        "2026": 341
+      }
+    },
+    "CME": {
+      "M2M_CATALOG": {
+        "2010": 44,
+        "2011": 231,
+        "2012": 354,
+        "2013": 356,
+        "2014": 692,
+        "2015": 524,
+        "2016": 334,
+        "2017": 222,
+        "2018": 51,
+        "2019": 66,
+        "2020": 143,
+        "2021": 510,
+        "2022": 1018,
+        "2023": 1241,
+        "2024": 1512,
+        "2025": 1655,
+        "2026": 1378
+      },
+      "SWPC_ANNEX_CME_CATALOG": {
+        "2013": 1
+      }
+    },
+    "SEP": {
+      "no catalog field": {
+        "2010": 1,
+        "2011": 25,
+        "2012": 41,
+        "2013": 31,
+        "2014": 27,
+        "2015": 10,
+        "2016": 2,
+        "2017": 13,
+        "2020": 2,
+        "2021": 13,
+        "2022": 40,
+        "2023": 75,
+        "2024": 119,
+        "2025": 60,
+        "2026": 35
+      }
+    }
+  },
+  "instrumentInventory": [
+    {
+      "displayName": "ACE: EPAM >30 MeV",
+      "class": "unknown",
+      "records": 1,
+      "recordsByYear": {
+        "2011": 1
+      },
+      "instrument": "Electron, Proton, and Alpha Monitor on ACE",
+      "basis": "Not supported. The ACE Science Center documents EPAM ions only up to about 5 MeV per nucleon, and none of the pages read gives EPAM a proton channel above 30 MeV. EPAM is a real instrument, but this name does not match its documented channels.",
+      "recordContext": "No MODEL: prefix, but the channel in the name could not be matched to the instrument.",
+      "sources": [
+        {
+          "id": "ace-epam-l2",
+          "title": "EPAM Level 2 Data Documentation",
+          "publisher": "ACE Science Center, Caltech",
+          "url": "https://izw1.caltech.edu/ACE/ASC/level2/epam_l2desc.html"
+        },
+        {
+          "id": "ace-sis-l2",
+          "title": "SIS Level 2 Data Documentation",
+          "publisher": "ACE Science Center, Caltech",
+          "url": "https://izw1.caltech.edu/ACE/ASC/level2/sis_l2desc.html"
+        },
+        {
+          "id": "swpc-ace-rtsw",
+          "title": "ACE Real-Time Solar Wind",
+          "publisher": "NOAA / NWS Space Weather Prediction Center",
+          "url": "https://www.spaceweather.gov/products/ace-real-time-solar-wind"
+        }
+      ]
+    },
+    {
+      "displayName": "GOES-P: SEISS >10 MeV",
+      "class": "observed",
+      "records": 51,
+      "recordsByYear": {
+        "2021": 3,
+        "2022": 5,
+        "2023": 15,
+        "2024": 15,
+        "2025": 9,
+        "2026": 4
+      },
+      "instrument": "Space Environment In-Situ Suite on the GOES-R series satellites; its proton sensor is the SGPS",
+      "basis": "NOAA documents SEISS as a particle instrument whose SGPS measures protons in place from 1 to 500 MeV, and NOAA publishes integral proton fluxes at and above 10 MeV as observed on the primary GOES satellite.",
+      "recordContext": "The name gives a satellite, an instrument and an integral proton channel, and carries no MODEL: prefix. DONKI does not say what the P in GOES-P stands for; reading it as the primary GOES satellite is our reading, not a documented fact.",
+      "sources": [
+        {
+          "id": "nesdis-seiss",
+          "title": "Space Environment In-Situ Suite (SEISS)",
+          "publisher": "NOAA NESDIS",
+          "url": "https://www.nesdis.noaa.gov/our-satellites/currently-flying/goes-east-west/space-environment-situ-suite-seiss-0"
+        },
+        {
+          "id": "ncei-seiss",
+          "title": "GOES-R Space Environment In Situ Suite (SEISS)",
+          "publisher": "NOAA NCEI",
+          "url": "https://www.ncei.noaa.gov/products/goes-r-space-environment-in-situ"
+        },
+        {
+          "id": "swpc-goes-proton-flux",
+          "title": "GOES Proton Flux",
+          "publisher": "NOAA / NWS Space Weather Prediction Center",
+          "url": "https://www.spaceweather.gov/products/goes-proton-flux"
+        }
+      ]
+    },
+    {
+      "displayName": "GOES-P: SEISS >100 MeV",
+      "class": "observed",
+      "records": 12,
+      "recordsByYear": {
+        "2021": 1,
+        "2022": 2,
+        "2024": 6,
+        "2025": 1,
+        "2026": 2
+      },
+      "instrument": "Space Environment In-Situ Suite on the GOES-R series satellites; its proton sensor is the SGPS",
+      "basis": "As for the channel above 10 MeV: the SGPS range covers 100 MeV, and NOAA publishes an integral proton flux at and above 100 MeV as observed on the primary GOES satellite.",
+      "recordContext": "Same as GOES-P: SEISS >10 MeV.",
+      "sources": [
+        {
+          "id": "nesdis-seiss",
+          "title": "Space Environment In-Situ Suite (SEISS)",
+          "publisher": "NOAA NESDIS",
+          "url": "https://www.nesdis.noaa.gov/our-satellites/currently-flying/goes-east-west/space-environment-situ-suite-seiss-0"
+        },
+        {
+          "id": "ncei-seiss",
+          "title": "GOES-R Space Environment In Situ Suite (SEISS)",
+          "publisher": "NOAA NCEI",
+          "url": "https://www.ncei.noaa.gov/products/goes-r-space-environment-in-situ"
+        },
+        {
+          "id": "swpc-goes-proton-flux",
+          "title": "GOES Proton Flux",
+          "publisher": "NOAA / NWS Space Weather Prediction Center",
+          "url": "https://www.spaceweather.gov/products/goes-proton-flux"
+        }
+      ]
+    },
+    {
+      "displayName": "GOES13: SEM/EPS >10 MeV",
+      "class": "observed",
+      "records": 45,
+      "recordsByYear": {
+        "2010": 1,
+        "2011": 9,
+        "2012": 12,
+        "2013": 7,
+        "2014": 7,
+        "2015": 4,
+        "2016": 1,
+        "2017": 4
+      },
+      "instrument": "Energetic Particle Sensor of the Space Environment Monitor on GOES-13 (named EPEAD on GOES 13 to 15)",
+      "basis": "NOAA NCEI documents the EPS detectors as measuring proton fluxes, says the integral proton fluxes are derived from the instrument channels, and lists GOES-13 data for the years in which DONKI uses this name.",
+      "recordContext": "The name gives the satellite, the instrument and an integral proton channel, and carries no MODEL: prefix.",
+      "sources": [
+        {
+          "id": "ncei-goes-1-15",
+          "title": "GOES 1-15 Space Weather Instruments",
+          "publisher": "NOAA NCEI",
+          "url": "https://www.ncei.noaa.gov/products/goes-1-15/space-weather-instruments"
+        },
+        {
+          "id": "swpc-goes-proton-flux",
+          "title": "GOES Proton Flux",
+          "publisher": "NOAA / NWS Space Weather Prediction Center",
+          "url": "https://www.spaceweather.gov/products/goes-proton-flux"
+        }
+      ]
+    },
+    {
+      "displayName": "GOES13: SEM/EPS >100 MeV",
+      "class": "observed",
+      "records": 11,
+      "recordsByYear": {
+        "2011": 2,
+        "2012": 2,
+        "2013": 2,
+        "2014": 3,
+        "2015": 1,
+        "2017": 1
+      },
+      "instrument": "Energetic Particle Sensor of the Space Environment Monitor on GOES-13 (named EPEAD on GOES 13 to 15)",
+      "basis": "As for the channel above 10 MeV.",
+      "recordContext": "Same as GOES13: SEM/EPS >10 MeV.",
+      "sources": [
+        {
+          "id": "ncei-goes-1-15",
+          "title": "GOES 1-15 Space Weather Instruments",
+          "publisher": "NOAA NCEI",
+          "url": "https://www.ncei.noaa.gov/products/goes-1-15/space-weather-instruments"
+        },
+        {
+          "id": "swpc-goes-proton-flux",
+          "title": "GOES Proton Flux",
+          "publisher": "NOAA / NWS Space Weather Prediction Center",
+          "url": "https://www.spaceweather.gov/products/goes-proton-flux"
+        }
+      ]
+    },
+    {
+      "displayName": "MODEL: REleASE:ACE/EPAM 15.8-39.8 MeV",
+      "class": "model",
+      "records": 44,
+      "recordsByYear": {
+        "2022": 7,
+        "2023": 8,
+        "2024": 17,
+        "2025": 8,
+        "2026": 4
+      },
+      "instrument": "REleASE model output",
+      "basis": "The name starts with MODEL:, which is enough under decision D22. The instrument named after the model is treated as the model's input, not as an observation. No REleASE documentation could be retrieved.",
+      "recordContext": "No measured ACE channel of this energy is listed by DONKI.",
+      "sources": []
+    },
+    {
+      "displayName": "MODEL: REleASE:ACE/EPAM 28.2-50.1 MeV",
+      "class": "model",
+      "records": 25,
+      "recordsByYear": {
+        "2022": 3,
+        "2023": 6,
+        "2024": 7,
+        "2025": 5,
+        "2026": 4
+      },
+      "instrument": "REleASE model output",
+      "basis": "As for the 15.8-39.8 MeV name.",
+      "recordContext": "No measured ACE channel of this energy is listed by DONKI.",
+      "sources": []
+    },
+    {
+      "displayName": "MODEL: REleASE:SOHO/EPHIN 15.8-39.8 MeV",
+      "class": "model",
+      "records": 46,
+      "recordsByYear": {
+        "2017": 1,
+        "2021": 2,
+        "2022": 8,
+        "2023": 10,
+        "2024": 15,
+        "2025": 7,
+        "2026": 3
+      },
+      "instrument": "REleASE model output",
+      "basis": "The name starts with MODEL:, which is enough under decision D22. The instrument named after the model is treated as the model's input, not as an observation. No REleASE documentation could be retrieved.",
+      "recordContext": "DONKI lists the measured channel under a separate name without the prefix.",
+      "sources": []
+    },
+    {
+      "displayName": "MODEL: REleASE:SOHO/EPHIN 28.2-50.1 MeV",
+      "class": "model",
+      "records": 25,
+      "recordsByYear": {
+        "2022": 3,
+        "2023": 7,
+        "2024": 7,
+        "2025": 4,
+        "2026": 4
+      },
+      "instrument": "REleASE model output",
+      "basis": "As for the 15.8-39.8 MeV name.",
+      "recordContext": "DONKI lists the measured channel under a separate name without the prefix.",
+      "sources": []
+    },
+    {
+      "displayName": "SOHO: COSTEP 15.8-39.8 MeV",
+      "class": "observed",
+      "records": 74,
+      "recordsByYear": {
+        "2011": 5,
+        "2012": 4,
+        "2013": 3,
+        "2014": 4,
+        "2015": 4,
+        "2016": 1,
+        "2017": 3,
+        "2021": 2,
+        "2022": 7,
+        "2023": 11,
+        "2024": 17,
+        "2025": 9,
+        "2026": 4
+      },
+      "instrument": "COSTEP on SOHO; its EPHIN sensor measures electrons, protons and helium",
+      "basis": "The instrument team documents COSTEP as measuring energetic particles from the Sun, with EPHIN covering hydrogen from 4 to more than 53 MeV, which contains this channel. The page does not list this channel itself.",
+      "recordContext": "DONKI lists the forecast for the same channel under a separate name that starts with MODEL:, so this name is the measurement side of that pair.",
+      "sources": [
+        {
+          "id": "kiel-costep",
+          "title": "SOHO - COSTEP (Comprehensive Suprathermal and Energetic Particle Analyzer)",
+          "publisher": "Institute for Experimental and Applied Physics, University of Kiel (instrument team site)",
+          "url": "https://www.ieap.uni-kiel.de/et/ag-heber/costep/"
+        },
+        {
+          "id": "kiel-ephin",
+          "title": "EPHIN (Electron Proton Helium Instrument)",
+          "publisher": "Institute for Experimental and Applied Physics, University of Kiel (instrument team site), based on R. Mueller-Mellin and others, Solar Physics 162, 483-504 (1995)",
+          "url": "https://www.ieap.uni-kiel.de/et/ag-heber/costep/ephin.php"
+        }
+      ]
+    },
+    {
+      "displayName": "SOHO: COSTEP 28.2-50.1 MeV",
+      "class": "observed",
+      "records": 38,
+      "recordsByYear": {
+        "2021": 1,
+        "2022": 3,
+        "2023": 9,
+        "2024": 14,
+        "2025": 7,
+        "2026": 4
+      },
+      "instrument": "COSTEP on SOHO; its EPHIN sensor measures electrons, protons and helium",
+      "basis": "As for the 15.8-39.8 MeV channel: the documented EPHIN range contains this channel.",
+      "recordContext": "Same as SOHO: COSTEP 15.8-39.8 MeV.",
+      "sources": [
+        {
+          "id": "kiel-costep",
+          "title": "SOHO - COSTEP (Comprehensive Suprathermal and Energetic Particle Analyzer)",
+          "publisher": "Institute for Experimental and Applied Physics, University of Kiel (instrument team site)",
+          "url": "https://www.ieap.uni-kiel.de/et/ag-heber/costep/"
+        },
+        {
+          "id": "kiel-ephin",
+          "title": "EPHIN (Electron Proton Helium Instrument)",
+          "publisher": "Institute for Experimental and Applied Physics, University of Kiel (instrument team site), based on R. Mueller-Mellin and others, Solar Physics 162, 483-504 (1995)",
+          "url": "https://www.ieap.uni-kiel.de/et/ag-heber/costep/ephin.php"
+        }
+      ]
+    },
+    {
+      "displayName": "STEREO A: IMPACT 13-100 MeV",
+      "class": "observed",
+      "records": 92,
+      "recordsByYear": {
+        "2011": 2,
+        "2012": 13,
+        "2013": 9,
+        "2014": 9,
+        "2015": 1,
+        "2017": 4,
+        "2020": 2,
+        "2021": 4,
+        "2022": 2,
+        "2023": 9,
+        "2024": 21,
+        "2025": 10,
+        "2026": 6
+      },
+      "instrument": "High Energy Telescope of the IMPACT investigation on STEREO-A",
+      "basis": "The instrument paper documents that the High Energy Telescope, carried on each of the two STEREO spacecraft, measures protons from about 13 to about 100 MeV. The energy range in the DONKI name matches it.",
+      "recordContext": "The name gives the spacecraft, the investigation and the proton energy range of its telescope, and carries no MODEL: prefix.",
+      "sources": [
+        {
+          "id": "stereo-het-paper",
+          "title": "The High Energy Telescope for STEREO",
+          "publisher": "T. T. von Rosenvinge and others, Space Science Reviews 136, 391-435 (2008), DOI 10.1007/s11214-007-9300-5; copy hosted by the instrument team at Caltech",
+          "url": "https://izw1.caltech.edu/STEREO/docs/STEREO-HET-SSR.pdf"
+        },
+        {
+          "id": "caltech-stereo-sep",
+          "title": "The SEP Instrument Suite on STEREO",
+          "publisher": "Caltech Space Radiation Laboratory (instrument team site)",
+          "url": "https://izw1.caltech.edu/STEREO/"
+        }
+      ]
+    },
+    {
+      "displayName": "STEREO B: IMPACT 13-100 MeV",
+      "class": "observed",
+      "records": 30,
+      "recordsByYear": {
+        "2011": 6,
+        "2012": 10,
+        "2013": 10,
+        "2014": 4
+      },
+      "instrument": "High Energy Telescope of the IMPACT investigation on STEREO-B",
+      "basis": "As for STEREO-A: the same telescope flew on both spacecraft.",
+      "recordContext": "Same as STEREO A: IMPACT 13-100 MeV. NASA says STEREO-B returned no data after 2014, and DONKI has no record with this name after 2014.",
+      "sources": [
+        {
+          "id": "stereo-het-paper",
+          "title": "The High Energy Telescope for STEREO",
+          "publisher": "T. T. von Rosenvinge and others, Space Science Reviews 136, 391-435 (2008), DOI 10.1007/s11214-007-9300-5; copy hosted by the instrument team at Caltech",
+          "url": "https://izw1.caltech.edu/STEREO/docs/STEREO-HET-SSR.pdf"
+        },
+        {
+          "id": "caltech-stereo-sep",
+          "title": "The SEP Instrument Suite on STEREO",
+          "publisher": "Caltech Space Radiation Laboratory (instrument team site)",
+          "url": "https://izw1.caltech.edu/STEREO/"
+        },
+        {
+          "id": "nasa-stereo",
+          "title": "STEREO A & B",
+          "publisher": "NASA Science",
+          "url": "https://science.nasa.gov/mission/stereo/"
+        }
+      ]
+    }
+  ],
+  "instrumentTable": {
+    "checked": {
+      "on": "2026-11-15",
+      "by": "Claude Code. Pages were retrieved by a web fetch service on its behalf and read on that day. Nobody on the team has re-read them yet."
+    },
+    "namesInTableButNotInData": []
+  },
+  "sepRecordClasses": {
+    "total": {
+      "observedOnly": 353,
+      "mixed": 0,
+      "modelOnly": 140,
+      "unknown": 1
+    },
+    "byYear": {
+      "2010": {
+        "observedOnly": 1,
+        "mixed": 0,
+        "modelOnly": 0,
+        "unknown": 0
+      },
+      "2011": {
+        "observedOnly": 24,
+        "mixed": 0,
+        "modelOnly": 0,
+        "unknown": 1
+      },
+      "2012": {
+        "observedOnly": 41,
+        "mixed": 0,
+        "modelOnly": 0,
+        "unknown": 0
+      },
+      "2013": {
+        "observedOnly": 31,
+        "mixed": 0,
+        "modelOnly": 0,
+        "unknown": 0
+      },
+      "2014": {
+        "observedOnly": 27,
+        "mixed": 0,
+        "modelOnly": 0,
+        "unknown": 0
+      },
+      "2015": {
+        "observedOnly": 10,
+        "mixed": 0,
+        "modelOnly": 0,
+        "unknown": 0
+      },
+      "2016": {
+        "observedOnly": 2,
+        "mixed": 0,
+        "modelOnly": 0,
+        "unknown": 0
+      },
+      "2017": {
+        "observedOnly": 12,
+        "mixed": 0,
+        "modelOnly": 1,
+        "unknown": 0
+      },
+      "2020": {
+        "observedOnly": 2,
+        "mixed": 0,
+        "modelOnly": 0,
+        "unknown": 0
+      },
+      "2021": {
+        "observedOnly": 11,
+        "mixed": 0,
+        "modelOnly": 2,
+        "unknown": 0
+      },
+      "2022": {
+        "observedOnly": 19,
+        "mixed": 0,
+        "modelOnly": 21,
+        "unknown": 0
+      },
+      "2023": {
+        "observedOnly": 44,
+        "mixed": 0,
+        "modelOnly": 31,
+        "unknown": 0
+      },
+      "2024": {
+        "observedOnly": 73,
+        "mixed": 0,
+        "modelOnly": 46,
+        "unknown": 0
+      },
+      "2025": {
+        "observedOnly": 36,
+        "mixed": 0,
+        "modelOnly": 24,
+        "unknown": 0
+      },
+      "2026": {
+        "observedOnly": 20,
+        "mixed": 0,
+        "modelOnly": 15,
+        "unknown": 0
+      }
+    },
+    "bySplit": {
+      "train": {
+        "observedOnly": 150,
+        "mixed": 0,
+        "modelOnly": 1,
+        "unknown": 1
+      },
+      "validation": {
+        "observedOnly": 30,
+        "mixed": 0,
+        "modelOnly": 23,
+        "unknown": 0
+      },
+      "test": {
+        "observedOnly": 173,
+        "mixed": 0,
+        "modelOnly": 116,
+        "unknown": 0
+      }
+    }
+  },
+  "mixedRecordOtherNames": [],
+  "flares": {
+    "raw": 3399,
+    "dropped": {
+      "class cannot be read": 0,
+      "class below M1.0": 631,
+      "begin or peak time missing": 0,
+      "peak time before begin time": 2,
+      "source location cannot be read": 1
+    },
+    "eligible": 2765,
+    "firstFlare": "2010-06-12T00:57Z",
+    "lastFlare": "2026-10-19T09:03Z",
+    "labels": {
+      "positive": 122,
+      "negative": 2630,
+      "ambiguous": 13,
+      "scored": 2752
+    },
+    "labelsByYear": {
+      "2010": {
+        "positive": 0,
+        "negative": 3,
+        "ambiguous": 0,
+        "scored": 3
+      },
+      "2011": {
+        "positive": 9,
+        "negative": 21,
+        "ambiguous": 0,
+        "scored": 30
+      },
+      "2012": {
+        "positive": 13,
+        "negative": 17,
+        "ambiguous": 0,
+        "scored": 30
+      },
+      "2013": {
+        "positive": 8,
+        "negative": 19,
+        "ambiguous": 0,
+        "scored": 27
+      },
+      "2014": {
+        "positive": 7,
+        "negative": 207,
+        "ambiguous": 0,
+        "scored": 214
+      },
+      "2015": {
+        "positive": 8,
+        "negative": 118,
+        "ambiguous": 0,
+        "scored": 126
+      },
+      "2016": {
+        "positive": 1,
+        "negative": 16,
+        "ambiguous": 0,
+        "scored": 17
+      },
+      "2017": {
+        "positive": 6,
+        "negative": 37,
+        "ambiguous": 0,
+        "scored": 43
+      },
+      "2020": {
+        "positive": 1,
+        "negative": 1,
+        "ambiguous": 0,
+        "scored": 2
+      },
+      "2021": {
+        "positive": 4,
+        "negative": 26,
+        "ambiguous": 0,
+        "scored": 30
+      },
+      "2022": {
+        "positive": 6,
+        "negative": 198,
+        "ambiguous": 4,
+        "scored": 204
+      },
+      "2023": {
+        "positive": 16,
+        "negative": 363,
+        "ambiguous": 3,
+        "scored": 379
+      },
+      "2024": {
+        "positive": 31,
+        "negative": 1001,
+        "ambiguous": 4,
+        "scored": 1032
+      },
+      "2025": {
+        "positive": 7,
+        "negative": 360,
+        "ambiguous": 1,
+        "scored": 367
+      },
+      "2026": {
+        "positive": 5,
+        "negative": 243,
+        "ambiguous": 1,
+        "scored": 248
+      }
+    },
+    "labelsBySplit": {
+      "train": {
+        "positive": 53,
+        "negative": 439,
+        "ambiguous": 0,
+        "scored": 492
+      },
+      "validation": {
+        "positive": 10,
+        "negative": 224,
+        "ambiguous": 4,
+        "scored": 234
+      },
+      "test": {
+        "positive": 59,
+        "negative": 1967,
+        "ambiguous": 9,
+        "scored": 2026
+      }
+    },
+    "ambiguousByEvidence": {
+      "modelOnly": 13
+    },
+    "positivesThatAlsoReachModelOrUnknownRecords": 40,
+    "withLinkedCmeAnalysis": 772,
+    "linkedCmeButNoUsableAnalysis": 0,
+    "withoutUsableEndTime": 13,
+    "endTimeBeforePeakTreatedAsMissing": 10,
+    "linkedSepIdsNotInTheDownload": []
+  },
+  "splits": {
+    "by": "flare peak year (UTC)",
+    "planned": {
+      "trainLastYear": 2020,
+      "validationLastYear": 2022
+    },
+    "used": {
+      "trainLastYear": 2020,
+      "validationLastYear": 2022
+    },
+    "years": {
+      "train": "2010-2020",
+      "validation": "2021-2022",
+      "test": "2023-2026"
+    },
+    "minimumPositives": 10,
+    "boundaryChanges": [],
+    "everySplitHasEnoughPositives": true
+  }
+}

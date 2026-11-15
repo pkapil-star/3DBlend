@@ -91,7 +91,20 @@ npm run dev            # or: npm run build && npx vite preview --port 4180
 # to see a region turn Watch/Act; switch crew member there to see crew B
 ```
 
-## Nothing is committed or pushed
+## Snapshot in this repo
+
+`crew-health-check-app/` is a plain-file snapshot of `webapp/` (the friend's app plus the changes above), so the
+3DBlend repo carries the work too. `webapp/` stays the working clone of the friend's repo (ignored here). After more
+work in `webapp/`, refresh the snapshot with:
+
+```bash
+rm -rf crew-health-check-app && mkdir crew-health-check-app && \
+  git -C webapp ls-files -co --exclude-standard -z | rsync -a --from0 --files-from=- webapp/ crew-health-check-app/
+```
+
+(That list respects the app's `.gitignore`, so PhysioNet data, `node_modules` and `dist` never get copied.)
+
+## Not committed or pushed in the friend's repo
 
 `webapp/` changes are uncommitted on `main` (`git -C webapp status`). The user reviews, then decides. If committing,
 the app's convention is a message like "B3: Connect body models and add the health status overlay" and
